@@ -45,6 +45,22 @@ public class BlogController {
 	
 	
 	
+	@GetMapping(value="/getBlog/{blogId")
+	public ResponseEntity<String>getBlog(@PathVariable ("blogid") int blogId)
+	{
+		blogDao.getBlog(blogId);
+		//if(blogDao.getBlog(blog)
+	//	{
+			return new ResponseEntity<String>("Blog Details ",HttpStatus.OK);
+		/*}
+		else
+		{
+			return new ResponseEntity<String>("Problem in Blog Deletion",HttpStatus.NOT_ACCEPTABLE);
+		}*/
+		
+	}
+	
+	
 	
 	@PostMapping(value="/createBlog")
 	public ResponseEntity<String> createBlog(@RequestBody Blog blog)
@@ -67,18 +83,18 @@ public class BlogController {
 	
 	
 	@PostMapping("/editBlog/{blogid}")
-	public ResponseEntity<String> editBlog(@RequestBody Blog blog, @PathVariable int blogId) {
+	public ResponseEntity<String> editBlog(@RequestBody int blog, @PathVariable("blogid") int blogId) {
 
-		Blog blogg= blogDao.getBlog(blogId);
+	/*	Blog blogg= blogDao.getBlog(blogId);
 		blogg.setBlogId(blog.getBlogId());
 		blogg.setBlogname(blog.getBlogname());
 		blogg.setStatus(blog.getStatus());
 		blogg.setLikes(blog.getLikes());
 		blogg.setCreateDate(blog.getCreateDate());
-		blogg.setUserId(blog.getUserId());
+		blogg.setUserId(blog.getUserId());*/
 		
-
-		if(blogDao.editBlog(blogId))
+        blogDao.getBlog(blogId);
+		if(blogDao.editBlog(blog))
 		{
 			return new ResponseEntity<String>("Blog Update",HttpStatus.OK);
 		}
@@ -123,6 +139,7 @@ public class BlogController {
 			return new ResponseEntity<String>("Problem in Blog Approval",HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
+	
 	
 	@GetMapping(value="/deleteBlog/{blogid}")
 	public ResponseEntity<String> deleteBlog(@PathVariable("blogid") int blogId)
