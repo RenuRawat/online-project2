@@ -70,5 +70,17 @@ public class FriendController {
 		}				 
 	}
 	
+	
+	@GetMapping(value="DeleteFriend/{friendid}")
+	public ResponseEntity<String>DeleteFriend(@PathVariable ("friendid") int friendId)
+	{
+		if(friendDao.deleteFriend(friendId))
+		{
+			return new ResponseEntity<String>("Friend detail Deleted", HttpStatus.OK);
+		} else {
+			return new ResponseEntity<String>("Problem in Deletion", HttpStatus.NOT_ACCEPTABLE);
+		}
+	}
+	
 
 }

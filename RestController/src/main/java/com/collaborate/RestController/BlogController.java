@@ -85,7 +85,8 @@ public class BlogController {
 	@PostMapping("/editBlog/{blogid}")
 	public ResponseEntity<String> editBlog(@RequestBody int blog, @PathVariable("blogid") int blogId) {
 
-	/*	Blog blogg= blogDao.getBlog(blogId);
+	/*	
+	    Blog blogg= blogDao.getBlog(blogId);
 		blogg.setBlogId(blog.getBlogId());
 		blogg.setBlogname(blog.getBlogname());
 		blogg.setStatus(blog.getStatus());
