@@ -30,7 +30,11 @@ public class UserDaoImpl implements UserDao {
 	
 	@Transactional
 	public boolean insertUser(User user) {
-		try 
+		sessionFactory.getCurrentSession().persist(user);
+		System.out.println("User Table inserted");
+		return true;
+		
+		/*try 
 		{
 			Session session = sessionFactory.openSession();	
 			session.save(user);	
@@ -42,7 +46,7 @@ public class UserDaoImpl implements UserDao {
 		{
 		System.out.println("Exception Arised:" +e);	
 		return false;
-		}
+		}*/
 
 	}
 
@@ -113,5 +117,22 @@ public class UserDaoImpl implements UserDao {
 				System.out.println("Exception Arised:"+e); 
 				return false;
 			}
+	}
+
+
+
+
+	@Transactional
+	public void updateUserOnline(User user) {
+		String updateQuery = "UPDATE User SET isOnline = :isOnline WHERE userId = :userId";
+		Query q = sessionFactory.getCurrentSession().createQuery(updateQuery);
+		q.setParameter("userId", user.getUserId());
+		q.setParameter("isOnline", user.getIsOnline());		
+		try {
+			q.executeUpdate();	
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+} 
 	}
 }

@@ -1,8 +1,10 @@
 package com.collaborate.test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.junit.BeforeClass;
@@ -34,34 +36,40 @@ public class UserDaoTestCase {
 		}
 		
 		
-	//	@Ignore
-		@Test
-		public void insertUsertTest() 
-		{
-			User user=new User();
-			
-			user.setId(2005);
-			System.out.println("Id");
-			user.setFirstname("Ja");
-			System.out.println("ja");
-			user.setLastname("OOa");
-			System.out.println("ooa");
-			user.setPasswword("rennu");
-			System.out.println("renu");
-			user.setEmailId("awp@gmail.com");
-			System.out.println("gmail");
-			user.setStatus("n");
-			System.out.println("n");
-			user.setOnline("n");
-			System.out.println("n2");
-			user.setRole("Admin");
+/*	
 			
 			System.out.println("Admin");
 			assertTrue("userDetails",userDao.insertUser(user));
 			System.out.println("Table");
 //			assertTrue("This will succeed.", userDao.createUser(user));
 
-		}
+		}*/
+		
+		
+		@Test
+		public void insertUserTestCase() {
+			
+			User user = new User();
+					
+			user.setBirthDate(LocalDate.parse("1994-04-09"));
+			user.setEmailId("renu@gmail.com");
+					
+			user.setFirstname("Renu");
+			user.setSurname("Rawat");
+			user.setGender('F');
+			user.setPasswword("renu");
+			user.setPhone("9876543210");
+			user.setStatus("A");
+			user.setIsOnline(false);
+			
+			user.setRole("ADMIN");
+			user.setConfmemail("renu@gmail.com");
+			user.setConfpassword("renu");
+			assertEquals("successfully!", Boolean.valueOf(true), userDao.insertUser(user));
+			
+			
+	}
+		
 		
 		
 		
@@ -73,19 +81,21 @@ public class UserDaoTestCase {
 			user = new User();
 			user = userDao.getUser(99);						
 			
-			user.setFirstname("Ja");
-			System.out.println("ja");
-			user.setLastname("OOa");
-			System.out.println("ooa");
-			user.setPasswword("rennu");
-			System.out.println("renu");
-			user.setEmailId("awp@gmail.com");
-			System.out.println("gmail");
-			user.setStatus("n");
-			System.out.println("n");
-			user.setOnline("n");
-			System.out.println("n2");
-			user.setRole("Admin");
+						
+			user.setBirthDate(LocalDate.parse("1994-04-09"));
+			user.setEmailId("renu@gmail.com");
+					
+			user.setFirstname("Renu");
+			user.setSurname("Rawat");
+			user.setGender('F');
+			user.setPasswword("renu");
+			user.setPhone("9876543210");
+			user.setStatus("A");
+			user.setIsOnline(false);
+			
+			user.setRole("ADMIN");
+			user.setConfmemail("renu@gmail.com");
+			user.setConfpassword("renu");
 			
 			System.out.println("Admin");
 						
@@ -114,19 +124,21 @@ public class UserDaoTestCase {
 			
 			user = userDao.getUser(102);
         
-			user.setFirstname("Ja");
-		System.out.println("ja");
-		user.setLastname("OOa");
-		System.out.println("ooa");
-		user.setPasswword("rennu");
-		System.out.println("renu");
-		user.setEmailId("awp@gmail.com");
-		System.out.println("gmail");
-		user.setStatus("n");
-		System.out.println("n");
-		user.setOnline("n");
-		System.out.println("n2");
-		user.setRole("Admin");
+		
+			user.setBirthDate(LocalDate.parse("1994-04-09"));
+			user.setEmailId("renu@gmail.com");
+					
+			user.setFirstname("Renu");
+			user.setSurname("Rawat");
+			user.setGender('F');
+			user.setPasswword("renu");
+			user.setPhone("9876543210");
+			user.setStatus("A");
+			user.setIsOnline(false);
+			
+			user.setRole("ADMIN");
+			user.setConfmemail("renu@gmail.com");
+			user.setConfpassword("renu");
 		
 		System.out.println("Admin");
 			

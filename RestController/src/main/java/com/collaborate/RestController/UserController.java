@@ -43,7 +43,7 @@ public class UserController {
 	{
 		user.setRole("user");
 		user.setStatus("NA");
-		user.setOnline("ritu");
+	
 		
 	 	if(userDao.insertUser(user))
 	 	{
