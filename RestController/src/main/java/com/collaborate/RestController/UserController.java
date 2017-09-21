@@ -47,7 +47,7 @@ public class UserController {
 		
 	 	if(userDao.insertUser(user))
 	 	{
-		return new ResponseEntity<String>("Friend table Created", HttpStatus.OK);
+		return new ResponseEntity<String>("User table Created", HttpStatus.OK);
 		} else
 		{
 		return new ResponseEntity<String>("Problem in Creation", HttpStatus.NOT_ACCEPTABLE);
@@ -56,10 +56,10 @@ public class UserController {
 	}
 	 	
 	 	
-	 @GetMapping(value="/ApproveUser/{Id}")
-	 public ResponseEntity<String>Approveuser(@PathVariable ("id") int Id)
+	 @GetMapping(value="/ApproveUser/{userid}")
+	 public ResponseEntity<String>Approveuser(@PathVariable ("userid") int userId)
 	 {
-		User user=userDao.getUser(Id); 
+		User user=userDao.getUser(userId); 
 	  if(userDao.approveUser(user))	{ 
 		return new ResponseEntity<String>("User Approved", HttpStatus.OK);
 	  }else {
@@ -68,14 +68,14 @@ public class UserController {
 	 }
 	 
 	 
-	@GetMapping(value="/Delete/{Id}")
-	public ResponseEntity<String>Delete(@PathVariable ("id") int Id)
+	@GetMapping(value="/Delete/{userid}")
+	public ResponseEntity<String>Delete(@PathVariable ("userid") int userId)
 	{
 		
-	if(userDao.deleteUser(Id)) {
+	if(userDao.deleteUser(userId)) {
 	return new ResponseEntity<String>("Deleted", HttpStatus.OK);
 	} else {
-	 return new ResponseEntity<String>("Problem in Delete", HttpStatus.OK);	
+	 return new ResponseEntity<String>("Problem in Deletion", HttpStatus.OK);	
 	}
 	
 	}

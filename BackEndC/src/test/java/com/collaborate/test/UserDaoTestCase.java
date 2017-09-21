@@ -45,7 +45,7 @@ public class UserDaoTestCase {
 
 		}*/
 		
-		
+		@Ignore
 		@Test
 		public void insertUserTestCase() {
 			
@@ -115,14 +115,14 @@ public class UserDaoTestCase {
 	
 		}
 		
-		@Ignore
+		//@Ignore
 		@Test
 		public void approveUserFormTest()
 		{
 			User user=new User();
         
 			
-			user = userDao.getUser(102);
+			user = userDao.getUser(304);
         
 		
 			user.setBirthDate(LocalDate.parse("1994-04-09"));
@@ -139,6 +139,7 @@ public class UserDaoTestCase {
 			user.setRole("ADMIN");
 			user.setConfmemail("renu@gmail.com");
 			user.setConfpassword("renu");
+	
 		
 		System.out.println("Admin");
 			
