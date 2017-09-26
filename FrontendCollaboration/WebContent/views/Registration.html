@@ -1,0 +1,39 @@
+<div class="container">
+
+<div class="form-group">
+Enter Username:
+<input type="text" ng-model="user.username" class="form-control">
+<span style='color:red'>{{error.message}}</span>
+</div>
+<div class="form-group">
+Enter Password:
+<input type="password" ng-model="user.password" class="form-control">
+</div>
+<div class="form-group">
+Enter Firstname:
+<input type="text" ng-model="user.firstname" class="form-control">
+</div>
+<div class="form-group">
+Enter Lastname:
+<input type="text" ng-model="user.lastname" class="form-control">
+</div>
+<div class="form-group">
+Enter Email:
+<input type="email" ng-model="user.email" class="form-control">
+</div>
+<div class="form-group">
+Enter PhoneNumber:
+<input type="text" ng-model="user.phone" class="form-control">
+</div>
+<div class="form-group">
+Select Role:
+<input type="radio" ng-model="user.role" value="STUDENT">Student
+<input type="radio" ng-model="user.role" value="EMPLOYEE">Employee
+<input type="radio" ng-model="user.role" value="ADMIN">Admin
+</div>
+
+<input type="submit" value="Register" ng-click="registerUser()">
+
+</form>
+
+</div>

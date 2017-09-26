@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/MainRoute.js"></script>
+<script src="controllers/loginController.js"></script>
+
+<script src="controllers/userController.js"></script>
+<script src="services/userservice.js"></script>
+</head>
+
+<br><br><br><br>
+<body ng-app="app">
+
+
+<header>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+ <div class="container-fluid">
+   
+    
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-example" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+     <div class="navbar-header">
+     <a class="navbar-brand" href="/">RR</a>
+     </div>
+     
+  <div class="collapse navbar-collapse" id="collapse-example">
+  <ul class="nav navbar-nav">
+  <li><a href="#/home">Home</a></li>
+<li><a href="#/register">Register</a></li>
+<li><a href="#/Login">Login</a></li>
+  </ul>
+  </div>   
+  </div>   
+</nav>
+</header>
+<div ng-view></div>
+
+</body>
+</html>
