@@ -3,17 +3,17 @@ package com.collaborate.Model;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.stereotype.Component;
 
 
-@SuppressWarnings("serial")
-@Component
+
+
 @Entity
 @Table(name="AdminTable")
 public class User implements Serializable{
@@ -22,24 +22,49 @@ public class User implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
 	private int userId;
+    private String username;
+	
+/*	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}*/
 	private String firstname; 
 	private String surname; 
 	private String phone;
-	private String emailId; 
-	private String confmemail;
+	@Column(unique=true, nullable=false)
+	private String email; 
+	//private String confmemail;
 	private String passwword; 
-	private String confpassword;
+	//private String confpassword;
 	
-	private LocalDate birthDate;
-	private char gender;
+	//private LocalDate birthDate;
+	//private char gender;
 	
 	private String role; 
-	private String status; 
+//	private String status; 
+	@Column(name="on_line")
 	private Boolean isOnline;
 	
 	
 	
-	public char getGender() {
+	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	
+	/*public char getGender() {
 		return gender;
 	}
 	public void setGender(char gender) {
@@ -52,19 +77,14 @@ public class User implements Serializable{
 	}
 	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
-	}
+	}*/
 	public Boolean getIsOnline() {
 		return isOnline;
 	}
 	public void setIsOnline(Boolean isOnline) {
 		this.isOnline = isOnline;
 	}
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+
 	public String getFirstname() {
 		return firstname;
 	}
@@ -83,23 +103,20 @@ public class User implements Serializable{
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getEmailId() {
-		return emailId;
-	}
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
-	public String getConfmemail() {
-		return confmemail;
-	}
-	public void setConfmemail(String confmemail) {
-		this.confmemail = confmemail;
-	}
+
+	
 	public String getPasswword() {
 		return passwword;
 	}
 	public void setPasswword(String passwword) {
 		this.passwword = passwword;
+	}
+	
+/*	public String getConfmemail() {
+		return confmemail;
+	}
+	public void setConfmemail(String confmemail) {
+		this.confmemail = confmemail;
 	}
 	public String getConfpassword() {
 		return confpassword;
@@ -107,6 +124,13 @@ public class User implements Serializable{
 	public void setConfpassword(String confpassword) {
 		this.confpassword = confpassword;
 	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}*/
+
 	
 	public String getRole() {
 		return role;
@@ -114,13 +138,7 @@ public class User implements Serializable{
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
+	
 	
 	
 }

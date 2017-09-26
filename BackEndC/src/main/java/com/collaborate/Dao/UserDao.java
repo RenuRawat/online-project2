@@ -12,10 +12,15 @@ public interface UserDao {
 	
 	
  
+boolean isUsernameValid(String username);	
+boolean isEmailValid(String email);
+
+ boolean registerUser(User user);
+ 
+
+ 
 	
-	public boolean insertUser(User user);
-	
-	public User getUser(int userId);
+/*	public User getUser(int userId);
 	
 	public List<User> getUsers();
 	
@@ -27,6 +32,6 @@ public interface UserDao {
 	
 	public boolean updateUser(int userId);
 	
-	public boolean deleteUser(int userId);
+	public boolean deleteUser(int userId);*/
 
 }

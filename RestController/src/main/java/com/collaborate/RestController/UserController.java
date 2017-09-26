@@ -1,25 +1,80 @@
 package com.collaborate.RestController;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.collaborate.Dao.UserDao;
+
 import com.collaborate.Model.User;
+import com.collaborate.Service.UserService;
+import com.collaborate.Model.Error;
 
-@RestController
+//@RestController
+@Controller
 public class UserController {
 	
+	
+@Autowired	
+private UserService userService;	
+	
+    /*
+     *  ? - Any type of data can be returned
+     */
+
+
+
+@PostMapping(value="/registeruser")
+public ResponseEntity<?>registeruser(@RequestBody User user)
+{     //validate username - unique
+	
+	if(!userService.isUsernameValid(user.getUsername())) { //username is duplicate
+		Error error=new Error(2, "Username already exists....please enter different username");
+		return new ResponseEntity<Error>(error, HttpStatus.NOT_ACCEPTABLE);
+	}
+	if(!userService.isEmailValid(user.getEmail())) {
+		Error error=new Error(3,"Email address already exists....please enter different email");
+		return new ResponseEntity<Error>(error, HttpStatus.NOT_ACCEPTABLE);
+	}
+	boolean result=userService.registerUser(user);
+ 	if(result)
+ 	{
+	return new ResponseEntity<User>(user, HttpStatus.OK);   //200-299
+	} else
+	{
+		Error error=new Error(1,"Unable to register user details");
+	return new ResponseEntity<Error>(error, HttpStatus.INTERNAL_SERVER_ERROR); //500
+
+	}
+}
+
+
+
+@PostMapping(value="/createUser")
+public ResponseEntity<String>createUser(@RequestBody User user)
+{
+	user.setRole("user");
+//	user.setStatus("NA");
 
 	
-	@Autowired
+ 	if(userService.registerUser(user))
+ 	{
+	return new ResponseEntity<String>("User table Created", HttpStatus.OK);
+	} else
+	{
+	return new ResponseEntity<String>("Problem in Creation", HttpStatus.NOT_ACCEPTABLE);
+
+	}
+}
+
+
+
+
+	/*@Autowired
 	UserDao userDao;
 	
 	
@@ -38,22 +93,7 @@ public class UserController {
 	
 	
 	
-	@PostMapping(value="/createUser")
-	public ResponseEntity<String>createUser(@RequestBody User user)
-	{
-		user.setRole("user");
-		user.setStatus("NA");
-	
-		
-	 	if(userDao.insertUser(user))
-	 	{
-		return new ResponseEntity<String>("User table Created", HttpStatus.OK);
-		} else
-		{
-		return new ResponseEntity<String>("Problem in Creation", HttpStatus.NOT_ACCEPTABLE);
 
-		}
-	}
 	 	
 	 	
 	 @GetMapping(value="/ApproveUser/{userid}")
@@ -80,7 +120,7 @@ public class UserController {
 	
 	}
 
-	
+*/	
 	
 	
 	

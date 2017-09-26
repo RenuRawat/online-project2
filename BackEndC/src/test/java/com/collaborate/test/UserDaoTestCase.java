@@ -45,34 +45,39 @@ public class UserDaoTestCase {
 
 		}*/
 		
-		@Ignore
+	//	@Ignore
 		@Test
 		public void insertUserTestCase() {
 			
 			User user = new User();
 					
-			user.setBirthDate(LocalDate.parse("1994-04-09"));
-			user.setEmailId("renu@gmail.com");
+		//	user.setBirthDate(LocalDate.parse("1994-04-09"));
+			user.setUsername("renu");
+		//	user.setUserId(1003);
+			
+			user.setEmail("renu@gmail.com");
 					
 			user.setFirstname("Renu");
 			user.setSurname("Rawat");
-			user.setGender('F');
+		//	user.setGender('F');
 			user.setPasswword("renu");
 			user.setPhone("9876543210");
-			user.setStatus("A");
+		//	user.setStatus("A");
 			user.setIsOnline(false);
 			
 			user.setRole("ADMIN");
-			user.setConfmemail("renu@gmail.com");
-			user.setConfpassword("renu");
-			assertEquals("successfully!", Boolean.valueOf(true), userDao.insertUser(user));
+		//	user.setConfmemail("renu@gmail.com");
+		//	user.setConfpassword("renu");
 			
+			System.out.println("user printed");
+			assertEquals("successfully!", Boolean.valueOf(true), userDao.registerUser(user));
+			System.out.println("After User Table");
 			
 	}
 		
 		
 		
-		
+	/*	
 		@Ignore
 		@Test
 		public void updateUserTest()
@@ -83,7 +88,7 @@ public class UserDaoTestCase {
 			
 						
 			user.setBirthDate(LocalDate.parse("1994-04-09"));
-			user.setEmailId("renu@gmail.com");
+			user.setEmail("renu@gmail.com");
 					
 			user.setFirstname("Renu");
 			user.setSurname("Rawat");
@@ -168,7 +173,7 @@ public class UserDaoTestCase {
 			
 }
 
-		
+		*/
 		
 
 }

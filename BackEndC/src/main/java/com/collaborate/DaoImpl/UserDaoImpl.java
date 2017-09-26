@@ -14,6 +14,7 @@ import com.collaborate.Model.User;
 
 
 @Repository("userDao")
+@Transactional
 public class UserDaoImpl implements UserDao {
 
 	
@@ -25,32 +26,74 @@ public class UserDaoImpl implements UserDao {
 		this.sessionFactory=sessionFactory;
 	}
 	
+	/*
+	 * username must be unique and not null
+	 * email must be unique and not null
+	 * email is null/username is null - it is an exception
+	 */
 	
 	
 	
-	@Transactional
-	public boolean insertUser(User user) {
-		sessionFactory.getCurrentSession().persist(user);
+@Transactional
+	public boolean registerUser(User user) {
+/*		sessionFactory.getCurrentSession().persist(user);
 		System.out.println("User Table inserted");
-		return true;
+		return true;*/
 		
-		/*try 
-		{
-			Session session = sessionFactory.openSession();	
+			Session session = sessionFactory.getCurrentSession();	
+			try 
+			{
 			session.save(user);	
-			session.close();
-		  System.out.println("Insert Table");
-
+			
+			
+		  System.out.println("Insert User Table");
 		return true;	
-		} catch(Exception e)
+			}
+		catch(Exception e)
 		{
 		System.out.println("Exception Arised:" +e);	
 		return false;
-		}*/
+		}
 
 	}
 
 	
+	public boolean isUsernameValid(String username) {
+		Session session=sessionFactory.getCurrentSession();
+		User user=(User)session.get(User.class, username);
+		if(user==null) //no rows selected - unique
+			return true;
+		else  // not null - 1 row selected - duplicate
+		return false;
+	}
+
+	
+	public boolean isEmailValid(String email) {
+		Session session=sessionFactory.getCurrentSession();
+		Query query=session.createQuery("from User where email=?");
+		query.setString(0, email);
+		User user=(User)query.uniqueResult();
+		if(user==null) //email is unique
+			return true;
+		else  // email is duplicate
+		return false;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+/*	
 	public User getUser(int userId) {
 		Session session = sessionFactory.openSession();	
 		User user = (User)session.get(User.class, userId);
@@ -79,10 +122,10 @@ public class UserDaoImpl implements UserDao {
 			System.out.println("Exception Arised:"+e); 
 			return false;
 		}
-	}
+	}*/
 
 	
-	@Transactional
+/*	@Transactional
 	public boolean updateUser(int userId) {
 		 try
 		  {
@@ -101,9 +144,9 @@ public class UserDaoImpl implements UserDao {
 			 System.out.println("Exception Arised:"+e); 
 			  return false; 
 		  }
-	}
+	}*/
 
-	@Transactional
+/*	@Transactional
 	public boolean deleteUser(int userId) {
 		try {  
 			Session session = sessionFactory.openSession();
@@ -118,11 +161,11 @@ public class UserDaoImpl implements UserDao {
 				return false;
 			}
 	}
+*/
 
 
 
-
-	@Transactional
+/*	@Transactional
 	public void updateUserOnline(User user) {
 		String updateQuery = "UPDATE User SET isOnline = :isOnline WHERE userId = :userId";
 		Query q = sessionFactory.getCurrentSession().createQuery(updateQuery);
@@ -134,5 +177,5 @@ public class UserDaoImpl implements UserDao {
 		catch(Exception ex) {
 			System.out.println(ex.getMessage());
 } 
-	}
+	}*/
 }
