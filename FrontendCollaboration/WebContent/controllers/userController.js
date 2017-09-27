@@ -15,7 +15,7 @@ app.controller('UserController', function($scope,UserService,$location) {
 			 */
 			console.log(response.data)
             console.log(response.status)
-            $location.path('/home')
+            $location.path('/Home')
 		}, function(response) {
 			/*
 			 * if status is 406, either username is not valid/email is not valid

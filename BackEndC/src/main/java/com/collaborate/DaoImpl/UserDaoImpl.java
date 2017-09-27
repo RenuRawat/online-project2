@@ -1,6 +1,6 @@
 package com.collaborate.DaoImpl;
 
-import java.util.List;
+
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -67,7 +67,7 @@ public class UserDaoImpl implements UserDao {
 		return false;
 	}
 
-	
+
 	public boolean isEmailValid(String email) {
 		Session session=sessionFactory.getCurrentSession();
 		Query query=session.createQuery("from User where email=?");

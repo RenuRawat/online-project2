@@ -17,13 +17,13 @@ public boolean registerUser(User user) {
 	
 }
 
-@Override
-public boolean isUsernameValid(String username) {
+
+ public boolean isUsernameValid(String username) {
 	
 	return userDao.isUsernameValid(username);
 }
 
-@Override
+
 public boolean isEmailValid(String email) {
 	
 	return userDao.isEmailValid(email);

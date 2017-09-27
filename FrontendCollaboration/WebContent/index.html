@@ -11,13 +11,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="js/MainRoute.js"></script>
+
 <script src="controllers/loginController.js"></script>
 
 <script src="controllers/userController.js"></script>
 <script src="services/userservice.js"></script>
 </head>
 
-<br><br><br><br>
+
 <body ng-app="app">
 
 
@@ -34,16 +35,40 @@
                     <span class="icon-bar"></span>
                 </button>
      <div class="navbar-header">
-     <a class="navbar-brand" href="/">RR</a>
+     <a class="navbar-brand" href="#/home">RR</a>
+     
      </div>
      
-  <div class="collapse navbar-collapse" id="collapse-example">
+     
+     
+     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+ <ul class="nav navbar-nav navbar-right">
+   
+    <li><a href="#/register"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+    <li><a href="#/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+    
+   
+<!--     <c:if test="${pageContext.request.userPrincipal.name!=null}">
+    
+
+    <li><a>Welcome:#{username}</a></li>
+    <li><a href="<c:url value="/logout"/>">Logout</a></li> -->
+
+
+   
+    </ul></div>
+     
+     
+   <div class="collapse navbar-collapse" id="collapse-example">
   <ul class="nav navbar-nav">
   <li><a href="#/home">Home</a></li>
-<li><a href="#/register">Register</a></li>
-<li><a href="#/Login">Login</a></li>
+
   </ul>
   </div>   
+  
+  
+  
+  
   </div>   
 </nav>
 </header>

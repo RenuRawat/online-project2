@@ -1,39 +1,91 @@
+<html>
+<body>
+
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link href="assets/mycss/Registration.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+ <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ 
+    <script src="js/bootstrap.min.js"></script>
+  
+	<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+</head>
+
+
 <div class="container">
+			<div class="row main">
+				<div class="panel-heading">
+	               <div class="panel-title text-center">
+	               		<h2 class="title">User Details</h2>
+	               		<hr />
+	               	</div>
+	            </div> 
+				<div class="main-login main-center">	
+
+
+
+
 
 <div class="form-group">
 Enter Username:
-<input type="text" ng-model="user.username" class="form-control">
-<span style='color:red'>{{error.message}}</span>
-</div>
+<div class="input-group">
+<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+<input type="text" ng-model="user.username" placeholder="Enter Your Username" class="form-control">
+
+</div></div>
+
 <div class="form-group">
 Enter Password:
-<input type="password" ng-model="user.password" class="form-control">
-</div>
+<div class="input-group">
+<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+<input type="password" ng-model="user.password" placeholder="Enter Your Password" class="form-control">
+</div></div>
+
 <div class="form-group">
 Enter Firstname:
-<input type="text" ng-model="user.firstname" class="form-control">
-</div>
+<div class="input-group">
+<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+<input type="text" ng-model="user.firstname" placeholder="Enter Your Firstname" class="form-control">
+</div></div>
+
 <div class="form-group">
-Enter Lastname:
-<input type="text" ng-model="user.lastname" class="form-control">
-</div>
+Enter Surname:
+<div class="input-group">
+<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+<input type="text" ng-model="user.surname" placeholder="Enter Your Surname" class="form-control">
+</div></div>
+
 <div class="form-group">
 Enter Email:
-<input type="email" ng-model="user.email" class="form-control">
-</div>
+<div class="input-group">
+<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+<input type="email" ng-model="user.email" placeholder="Enter Your Email" class="form-control">
+</div></div>
 <div class="form-group">
 Enter PhoneNumber:
-<input type="text" ng-model="user.phone" class="form-control">
-</div>
+<div class="input-group">
+<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
+<input type="text" ng-model="user.phone" placeholder="Enter Your Phone" class="form-control">
+</div></div>
 <div class="form-group">
-Select Role:
+<center>Select Role:</center>
+<br>
 <input type="radio" ng-model="user.role" value="STUDENT">Student
 <input type="radio" ng-model="user.role" value="EMPLOYEE">Employee
 <input type="radio" ng-model="user.role" value="ADMIN">Admin
 </div>
 
-<input type="submit" value="Register" ng-click="registerUser()">
+<input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Register" ng-click="registerUser()">
 
 </form>
 
-</div>
+</div></div></div>
+
+</body>
+</html>

@@ -54,7 +54,7 @@ public ResponseEntity<?>registeruser(@RequestBody User user)
 
 
 
-@PostMapping(value="/createUser")
+/*@PostMapping(value="/createUser")
 public ResponseEntity<String>createUser(@RequestBody User user)
 {
 	user.setRole("user");
@@ -70,7 +70,7 @@ public ResponseEntity<String>createUser(@RequestBody User user)
 
 	}
 }
-
+*/
 
 
 

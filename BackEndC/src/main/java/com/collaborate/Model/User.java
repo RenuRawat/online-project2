@@ -16,15 +16,17 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="AdminTable")
-public class User implements Serializable{
+public class User{
 	
 
-	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+//	private int userId;
 	@Id
-	private int userId;
+	
     private String username;
 	
-/*	public int getUserId() {
+	
+	/*public int getUserId() {
 		return userId;
 	}
 	public void setUserId(int userId) {
@@ -55,7 +57,8 @@ public class User implements Serializable{
 	}
 	public void setUsername(String username) {
 		this.username = username;
-	}
+	} 
+	
 	public String getEmail() {
 		return email;
 	}
@@ -63,21 +66,7 @@ public class User implements Serializable{
 		this.email = email;
 	}
 	
-	
-	/*public char getGender() {
-		return gender;
-	}
-	public void setGender(char gender) {
-		this.gender = gender;
-	}
-	
-		
-	public LocalDate getBirthDate() {
-		return birthDate;
-	}
-	public void setBirthDate(LocalDate birthDate) {
-		this.birthDate = birthDate;
-	}*/
+
 	public Boolean getIsOnline() {
 		return isOnline;
 	}
