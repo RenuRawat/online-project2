@@ -4,6 +4,9 @@
 
 
 app.controller('UserController', function($scope,UserService,$location) {
+	
+	
+	
 	$scope.registerUser=function() {
 		/*
 		 * call userservice - pass user data in Json Format
@@ -14,8 +17,8 @@ app.controller('UserController', function($scope,UserService,$location) {
 			 * Redirect the user to login page with 'registration success' message
 			 */
 			console.log(response.data)
-            console.log(response.status)
-            $location.path('/Home')
+            console.log(response.status)          
+            $location.path('/home')
 		}, function(response) {
 			/*
 			 * if status is 406, either username is not valid/email is not valid
@@ -26,6 +29,23 @@ app.controller('UserController', function($scope,UserService,$location) {
             $scope.error=response.data
             $location.path('/register')
 		})
-		
+		}
+	
+	
+	$scope.login=function()
+	{
+	  console.log($scope.userObj)
+	  UserService.login($scope.userObj).then(function(response)
+	 {
+		 $location.path('/home') 
+	 }, function(response) {
+		 $scope.error=response.data.message
+		 $location.path('/login')
+	
+	 }	)
+	  
 	}
-      })
+	
+	
+	
+})

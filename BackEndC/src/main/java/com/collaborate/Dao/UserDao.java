@@ -16,6 +16,7 @@ boolean isUsernameValid(String username);
 boolean isEmailValid(String email);
 
  boolean registerUser(User user);
+ User login(User user);
  
 
  

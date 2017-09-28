@@ -78,6 +78,21 @@ public class UserDaoImpl implements UserDao {
 		else  // email is duplicate
 		return false;
 	}
+
+
+	public User login(User user) {
+	    Session session=sessionFactory.getCurrentSession();
+	    System.out.println("0");
+	    Query query=session.createQuery("from User where username=? and password=?");
+	    System.out.println("1");
+	    query.setString(0, user.getUsername());
+	    System.out.println("2");
+	    query.setString(1, user.getPassword());
+	    System.out.println("3");
+	    user=(User) query.uniqueResult();
+	    System.out.println("4");
+	    return user;
+	}
 	
 	
 	

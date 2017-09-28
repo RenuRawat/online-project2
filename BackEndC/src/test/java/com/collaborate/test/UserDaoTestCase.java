@@ -60,7 +60,7 @@ public class UserDaoTestCase {
 			user.setFirstname("Renu");
 			user.setSurname("Rawat");
 		//	user.setGender('F');
-			user.setPasswword("renu");
+			user.setPassword("renu");
 			user.setPhone("9876543210");
 		//	user.setStatus("A");
 			user.setIsOnline(false);

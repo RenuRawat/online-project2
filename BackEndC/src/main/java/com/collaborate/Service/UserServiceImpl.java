@@ -31,6 +31,13 @@ public boolean isEmailValid(String email) {
 
 
 
+public User login(User user) {
+
+	return userDao.login(user);
+}
+
+
+
 
 
 

@@ -38,11 +38,12 @@ public class User{
 	@Column(unique=true, nullable=false)
 	private String email; 
 	//private String confmemail;
-	private String passwword; 
+	private String password; 
 	//private String confpassword;
 	
 	//private LocalDate birthDate;
 	//private char gender;
+	
 	
 	private String role; 
 //	private String status; 
@@ -50,6 +51,12 @@ public class User{
 	private Boolean isOnline;
 	
 	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
 	
 	public String getUsername() {
@@ -94,12 +101,7 @@ public class User{
 	}
 
 	
-	public String getPasswword() {
-		return passwword;
-	}
-	public void setPasswword(String passwword) {
-		this.passwword = passwword;
-	}
+	
 	
 /*	public String getConfmemail() {
 		return confmemail;

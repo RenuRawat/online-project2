@@ -54,23 +54,22 @@ public ResponseEntity<?>registeruser(@RequestBody User user)
 
 
 
-/*@PostMapping(value="/createUser")
-public ResponseEntity<String>createUser(@RequestBody User user)
+@PostMapping(value="/login")
+public ResponseEntity<?>loginuser(@RequestBody User user)
 {
-	user.setRole("user");
-//	user.setStatus("NA");
+	User validUser=userService.login(user);
+ 	if(validUser==null) // invalid username/password
+ 	{
+ 		Error error=new Error(4,"Invalid Username/Password....");
+ 	return new ResponseEntity<Error>(error, HttpStatus.UNAUTHORIZED); //401  error 2nd callback function
+	  
+	}
+ 	 // update the online status to true
+		
+	return new ResponseEntity<User>(validUser, HttpStatus.OK); //success 1st callback function
 
 	
- 	if(userService.registerUser(user))
- 	{
-	return new ResponseEntity<String>("User table Created", HttpStatus.OK);
-	} else
-	{
-	return new ResponseEntity<String>("Problem in Creation", HttpStatus.NOT_ACCEPTABLE);
-
-	}
 }
-*/
 
 
 
