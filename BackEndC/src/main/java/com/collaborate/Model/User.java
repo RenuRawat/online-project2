@@ -1,12 +1,8 @@
 package com.collaborate.Model;
 
-import java.io.Serializable;
-import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -129,6 +125,7 @@ public class User{
 	public void setRole(String role) {
 		this.role = role;
 	}
+
 	
 	
 	

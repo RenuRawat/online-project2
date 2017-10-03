@@ -12,6 +12,9 @@ public interface UserService {
 	boolean registerUser(User user);
 	
 	 User login(User user);
+	 
+	 // online status
+	 void update(User user);
 
 
 }

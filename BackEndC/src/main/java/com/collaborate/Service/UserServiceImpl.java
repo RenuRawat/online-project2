@@ -38,6 +38,13 @@ public User login(User user) {
 
 
 
+public void update(User user) {
+	 userDao.update(user);;
+	
+}
+
+
+
 
 
 

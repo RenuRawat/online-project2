@@ -62,12 +62,24 @@ public ResponseEntity<?>loginuser(@RequestBody User user)
  	{
  		Error error=new Error(4,"Invalid Username/Password....");
  	return new ResponseEntity<Error>(error, HttpStatus.UNAUTHORIZED); //401  error 2nd callback function
-	  
+	  //response.data=error and .status=error
 	}
+ 	
+ 	System.out.println("ONLINE STATUS BEFORE UPDATE" + validUser); //false
  	 // update the online status to true
-		
+		validUser.setIsOnline(true);
+		try
+		{ 
+		userService.update(validUser);
+		}
+		catch(Exception e)
+		{
+			Error error=new Error(6,"Unable to update online status");
+			return new ResponseEntity<Error>(error,HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		System.out.println("ONLINE STATUS AFTER UPDATE" + validUser); //true	
 	return new ResponseEntity<User>(validUser, HttpStatus.OK); //success 1st callback function
-
+      //response.data=validUser,,,,,response.status=200
 	
 }
 

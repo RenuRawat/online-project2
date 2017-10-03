@@ -93,6 +93,13 @@ public class UserDaoImpl implements UserDao {
 	    System.out.println("4");
 	    return user;
 	}
+
+	
+	public void update(User user) {
+		Session session=sessionFactory.getCurrentSession();
+		session.update(user); //update set online=1, firstname=..lastname=... where username=? will same...only changing in online status
+		
+	}
 	
 	
 	
