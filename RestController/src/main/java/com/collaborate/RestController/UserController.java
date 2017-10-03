@@ -1,5 +1,7 @@
 package com.collaborate.RestController;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -21,6 +24,9 @@ public class UserController {
 	
 @Autowired	
 private UserService userService;	
+  public UserController() {
+	  System.out.println("USERCONTROLLER INSTANTIATED");
+  }
 	
     /*
      *  ? - Any type of data can be returned
@@ -53,9 +59,9 @@ public ResponseEntity<?>registeruser(@RequestBody User user)
 }
 
 
-
+//Each user unique HttpSession obj will get created
 @PostMapping(value="/login")
-public ResponseEntity<?>loginuser(@RequestBody User user)
+public ResponseEntity<?>loginuser(@RequestBody User user,HttpSession session)
 {
 	User validUser=userService.login(user);
  	if(validUser==null) // invalid username/password
@@ -78,10 +84,38 @@ public ResponseEntity<?>loginuser(@RequestBody User user)
 			return new ResponseEntity<Error>(error,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		System.out.println("ONLINE STATUS AFTER UPDATE" + validUser); //true	
-	return new ResponseEntity<User>(validUser, HttpStatus.OK); //success 1st callback function
+		session.setAttribute("username", validUser.getUsername());
+		//username of logged-in user to an attribute 'username'
+		System.out.println("Username");
+		
+	 return new ResponseEntity<User>(validUser, HttpStatus.OK); //success 1st callback function
       //response.data=validUser,,,,,response.status=200
 	
+}  
+
+
+@PutMapping(value="/logout")
+public ResponseEntity<?> logout(HttpSession session) {
+	String username=(String)session.getAttribute("username");
+	System.out.println("Name of the user is" + username);
+	if(username==null)
+	{
+		Error error=new Error(5,"Unauthorized access....plaese login...");
+		return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+	}
+	User user=userService.getUserByUsername(username);
+	user.setIsOnline(false);
+	userService.update(user); //online Status is false
+	session.removeAttribute("username");
+	System.out.println("logout");
+	session.invalidate();
+	return new ResponseEntity<User>(user,HttpStatus.OK);
 }
+
+
+
+   
+
 
 
 

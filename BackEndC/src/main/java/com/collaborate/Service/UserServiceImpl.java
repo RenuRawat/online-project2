@@ -45,6 +45,13 @@ public void update(User user) {
 
 
 
+public User getUserByUsername(String username) {
+	
+	return userDao.getUserByUsername(username);
+}
+
+
+
 
 
 

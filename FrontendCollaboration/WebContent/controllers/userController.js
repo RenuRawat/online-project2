@@ -3,7 +3,7 @@
  */
 
 
-app.controller('UserController', function($scope,UserService,$location) {
+app.controller('UserController', function($scope,UserService,$location,$rootScope,$cookieStore) {
 	
 	
 	
@@ -18,7 +18,7 @@ app.controller('UserController', function($scope,UserService,$location) {
 			 */
 			console.log(response.data)
             console.log(response.status)          
-            $location.path('/home')
+            $location.path('/login')
 		}, function(response) {
 			/*
 			 * if status is 406, either username is not valid/email is not valid
@@ -37,6 +37,8 @@ app.controller('UserController', function($scope,UserService,$location) {
 	  console.log($scope.userObj)
 	  UserService.login($scope.userObj).then(function(response)
 	 {
+		 $rootScope.currentUser=response.data  //response.data is User obj
+		 $cookieStore.put('userDetails', response.data)
 		 $location.path('/home') 
 	 }, function(response) {
 		 $scope.error=response.data.message
@@ -44,6 +46,16 @@ app.controller('UserController', function($scope,UserService,$location) {
 	
 	 }	)
 	  
+	}
+	
+	
+	if($rootScope.currentUser!=undefined) {
+		UserService.getUser().then(function(response) {
+			$scope.user=response.data
+			
+		},function(response) {
+			console.log(response.status)
+		})
 	}
 	
 	

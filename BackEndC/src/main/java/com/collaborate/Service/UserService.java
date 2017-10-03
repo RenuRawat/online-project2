@@ -6,15 +6,18 @@ public interface UserService {
 	
 	
 	
-	boolean isUsernameValid(String username);	
-	boolean isEmailValid(String email);
+public	boolean isUsernameValid(String username);	
+public boolean isEmailValid(String email);
 	
-	boolean registerUser(User user);
+public	boolean registerUser(User user);
 	
-	 User login(User user);
+public User login(User user);
 	 
 	 // online status
-	 void update(User user);
+public void update(User user);
+	 
+	 
+public User getUserByUsername(String username);
 
 
 }

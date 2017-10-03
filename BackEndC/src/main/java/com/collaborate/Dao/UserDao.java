@@ -21,6 +21,8 @@ boolean isEmailValid(String email);
  // online status
  void update(User user);
  
+ User getUserByUsername(String username);
+ 
 
  
 	
