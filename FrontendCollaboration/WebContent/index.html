@@ -19,6 +19,9 @@
 
 <script src="controllers/userController.js"></script>
 <script src="services/userservice.js"></script>
+<script src="controllers/blogpostcontroller.js"></script>
+<script src="services/blogpostService.js"></script>
+
 </head>
 
 
@@ -62,7 +65,7 @@
    <li><a href="#/register" ng-hide="currentUser.online"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
    <li><a href="#/login" ng-hide="currentUser.online"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
     <li><a href="#/editprofile" ng-hide="currentUser.online"><span class="glyphicon glyphicon-log-in"></span>Edit Profile</a></li>
-     
+    <li><a href="#/addblogpost" >Add Blog Post</a></li>
     <li><a href="#"  >Welcome {{currentUser.username}}</a></li>
     <li><a href="" ng-click="logout()" >Logout</a></li> 
    

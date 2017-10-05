@@ -22,12 +22,14 @@ import com.collaborate.Dao.FriendDao;
 import com.collaborate.Dao.JobsDao;
 import com.collaborate.Dao.UserDao;
 import com.collaborate.DaoImpl.BlogDaoImpl;
+import com.collaborate.DaoImpl.BlogPostImpl;
 import com.collaborate.DaoImpl.ChatDaoImpl;
 import com.collaborate.DaoImpl.ForumDaoImpl;
 import com.collaborate.DaoImpl.FriendDaoImpl;
 import com.collaborate.DaoImpl.JobsDaoImpl;
 import com.collaborate.DaoImpl.UserDaoImpl;
 import com.collaborate.Model.Blog;
+import com.collaborate.Model.BlogPost;
 import com.collaborate.Model.Chat;
 import com.collaborate.Model.Forum;
 import com.collaborate.Model.Friend;
@@ -89,6 +91,7 @@ public class DBConfig {
 		
 		localSessionFactoryBuilder.addAnnotatedClass(User.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Blog.class);
+		localSessionFactoryBuilder.addAnnotatedClass(BlogPost.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Forum.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Friend.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Jobs.class);
@@ -158,7 +161,12 @@ public class DBConfig {
 	return new UserDaoImpl(sessionFactory);
 	}
 	
-	
+	@Autowired
+	@Bean
+	public BlogPostImpl getBlog(SessionFactory sessionFactory)
+	{
+	return new BlogPostImpl(sessionFactory);
+	}
 	
 
 }

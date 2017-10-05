@@ -13,6 +13,8 @@ app.config(function($routeProvider)
 	            	  })
 	            	  
 	            	.when('/editprofile',{templateUrl:'views/EditProfile.html', controller:'UserController'})  
+	            	
+	            	.when('/addblogpost',{templateUrl:'views/blogPostForm.html', controller:'BlogPostController'})
 	             	  
 	              .otherwise({templateUrl:'views/home.html'})
 
