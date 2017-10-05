@@ -2,6 +2,7 @@
  * 
  */
 
+
 app.factory('BlogPostService',function($http) {
 	var blogPostService={}
 	var BASE_URL="http://localhost:8086/RestController"
