@@ -38,9 +38,9 @@
 Enter Username:
 <div class="input-group">
 <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-<input type="text" ng-model="user.username" placeholder="Enter Your Username" class="form-control">
+<input type="text" ng-model="user.username" placeholder="Enter Your Username" class="form-control" disabled>
 
-</div><span style='color:red' ng-if="error.code==2">{{error.message}}</span>
+</div>
 </div>
 
 <div class="form-group">
@@ -85,7 +85,7 @@ Enter PhoneNumber:
 <input type="radio" ng-model="user.role" value="ADMIN">Admin
 </div>
 
-<input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Register" ng-click="registerUser()">
+<input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Edit" ng-click="updateUser()">
 
 </form>
 

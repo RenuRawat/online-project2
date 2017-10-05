@@ -2,8 +2,9 @@
  *  UserController
  */
 
-
-app.controller('UserController', function($scope,UserService,$location,$rootScope,$cookieStore) {
+//app.controller('UserController', function($scope,UserService,$location,$rootScope,$cookieStore,$window) 
+app.controller('UserController', function($scope,UserService,$location,$rootScope,$cookieStore) 
+	{
 	
 	
 	
@@ -40,6 +41,8 @@ app.controller('UserController', function($scope,UserService,$location,$rootScop
 		 $rootScope.currentUser=response.data  //response.data is User obj
 		 $cookieStore.put('userDetails', response.data)
 		 $location.path('/home') 
+		// $window.location.reload();
+		 
 	 }, function(response) {
 		 $scope.error=response.data.message
 		 $location.path('/login')
@@ -47,6 +50,24 @@ app.controller('UserController', function($scope,UserService,$location,$rootScop
 	 }	)
 	  
 	}
+	
+	
+	$scope.updateUser=function()
+	{
+	  UserService.updateUser($scope.user).then(function(response)
+	 {  alert('Updated the details successfully')
+	    $location.path('/home') 
+			 
+	 }, function(response) {
+		 if(response.status==401) {
+			$location.path('/login') 
+		 } else {
+			$scope.error=response.data 
+			$location.path('/editprofile') 
+		 } })
+	 }
+				 
+	
 	
 	
 	if($rootScope.currentUser!=undefined) {

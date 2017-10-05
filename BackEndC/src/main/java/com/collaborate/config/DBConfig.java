@@ -1,5 +1,7 @@
 package com.collaborate.config;
 
+
+
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -14,7 +16,6 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.collaborate.Dao.BlogDao;
 import com.collaborate.Dao.ChatDao;
 import com.collaborate.Dao.ForumDao;
 import com.collaborate.Dao.FriendDao;
@@ -61,6 +62,7 @@ public class DBConfig {
 	// 2 create a Hibernate property for Datasource itz mentory,,,, which is used for LocalSessionFactory
 	
 	@Autowired
+	@Bean
 	public Properties getHibernateProperties()
 	{
 		Properties properties=new Properties();
@@ -77,8 +79,8 @@ public class DBConfig {
 	
 	// 3 create a SessionFactory Bean.....local sessionfactory.....
 	// sessionFactorydepend on ("hibernate core dependency").
-	
-	
+	//create an instance
+	@Autowired
 	@Bean
 	public SessionFactory getSessionFactory()
 	{

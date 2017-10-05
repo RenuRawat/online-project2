@@ -61,7 +61,7 @@ public ResponseEntity<?>registeruser(@RequestBody User user)
 
 //Each user unique HttpSession obj will get created
 @PostMapping(value="/login")
-public ResponseEntity<?>loginuser(@RequestBody User user,HttpSession session)
+public ResponseEntity<?>login(@RequestBody User user,HttpSession session)
 {
 	User validUser=userService.login(user);
  	if(validUser==null) // invalid username/password
@@ -112,62 +112,45 @@ public ResponseEntity<?> logout(HttpSession session) {
 	return new ResponseEntity<User>(user,HttpStatus.OK);
 }
 
-
-
-   
-
-
-
-
-	/*@Autowired
-	UserDao userDao;
-	
-	
-	@GetMapping(value="/getAllUser")
-	public ResponseEntity<ArrayList<User>>getAllUser() {
-		
-		ArrayList<User> listUsers= new ArrayList<User>();
-		listUsers=(ArrayList<User>)userDao.getUsers();
-		
-		
-		return new ResponseEntity<ArrayList<User>>(listUsers, HttpStatus.OK);
-		
-	}
-	
-	
-	
-	
-	
-
-	 	
-	 	
-	 @GetMapping(value="/ApproveUser/{userid}")
-	 public ResponseEntity<String>Approveuser(@PathVariable ("userid") int userId)
-	 {
-		User user=userDao.getUser(userId); 
-	  if(userDao.approveUser(user))	{ 
-		return new ResponseEntity<String>("User Approved", HttpStatus.OK);
-	  }else {
-		return new ResponseEntity<String>("Problem in User Approval", HttpStatus.OK);  
-	  }
-	 }
-	 
-	 
-	@GetMapping(value="/Delete/{userid}")
-	public ResponseEntity<String>Delete(@PathVariable ("userid") int userId)
+@GetMapping(value="/getuser")
+public ResponseEntity<?> getUser(HttpSession session) {
+	String username=(String)session.getAttribute("username");
+	if(username==null)
 	{
-		
-	if(userDao.deleteUser(userId)) {
-	return new ResponseEntity<String>("Deleted", HttpStatus.OK);
-	} else {
-	 return new ResponseEntity<String>("Problem in Deletion", HttpStatus.OK);	
+		Error error=new Error(5,"Unauthorized access....plaese login...");
+		return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
 	}
-	
-	}
+	User user=userService.getUserByUsername(username);
+	return new ResponseEntity<User>(user,HttpStatus.OK);
 
-*/	
-	
-	
+}
+
+
+@PutMapping(value="/updateuser")
+public ResponseEntity<?> updateUser(@RequestBody User user,HttpSession session) 
+{  
+	String username=(String)session.getAttribute("username");
+	if(username==null)
+	{
+		Error error=new Error(5,"Unauthorized access....plaese login...");
+		return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+	}
+	if(!userService.isUpdatedEmailValid(user.getEmail(),user.getUsername())) 
+	{
+		Error error=new Error(3,"Email address already exists....please enter different email");
+		return new ResponseEntity<Error>(error, HttpStatus.NOT_ACCEPTABLE);
+	}
+ 
+	try {
+		userService.update(user);
+		return new ResponseEntity<User>(user,HttpStatus.OK);
+	} catch(Exception e) {
+		
+		Error error=new Error(4,"Unable to update user details");
+		return new ResponseEntity<Error>(error,HttpStatus.INTERNAL_SERVER_ERROR);
+	}}
+
+
 	
 	
   @GetMapping("/user")

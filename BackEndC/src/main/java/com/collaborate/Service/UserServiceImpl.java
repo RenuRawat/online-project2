@@ -50,6 +50,11 @@ public User getUserByUsername(String username) {
 	return userDao.getUserByUsername(username);
 }
 
+public boolean isUpdatedEmailValid(String email, String username) {
+	
+	return userDao.isUpdatedEmailValid(email, username);
+}
+
 
 
 

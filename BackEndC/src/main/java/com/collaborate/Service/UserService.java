@@ -19,5 +19,7 @@ public void update(User user);
 	 
 public User getUserByUsername(String username);
 
+public boolean isUpdatedEmailValid(String email, String username);
+
 
 }

@@ -23,6 +23,8 @@ boolean isEmailValid(String email);
  
  User getUserByUsername(String username);
  
+ boolean isUpdatedEmailValid(String email, String username);
+ 
 
  
 	

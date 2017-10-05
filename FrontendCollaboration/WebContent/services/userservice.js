@@ -13,16 +13,21 @@ app.factory('UserService', function($http) {
 	  return $http.post(BASE_URL + "/login",user)
 	 
 	}
-	 userService.logout=function() {
-		 return $http.put(BASE_URL + "/logout")
-	 }
+	 userService.login=function(){
+		  return $http.post(BASE_URL + "/logout")
+		 
+		}
+	 
+	 userService.login=function(){
+		  return $http.post(BASE_URL + "/getuser")
+		 
+		}
+	 userService.login=function(user){
+		  return $http.post(BASE_URL + "/updateuser",user)
+		 
+		}
 
-	 
-	 
-	/* userService.getUser=function() {
-		 return $http.put(BASE_URL + "/getUser")
-	 }*/
-	
+
 	return userService;
      }
 		)

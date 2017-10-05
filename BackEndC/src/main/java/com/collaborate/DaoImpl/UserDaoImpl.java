@@ -108,6 +108,19 @@ public class UserDaoImpl implements UserDao {
 		  return user;
 	
 	}
+
+	
+	public boolean isUpdatedEmailValid(String email, String username) {
+		Session session=sessionFactory.getCurrentSession();
+		Query query=session.createQuery("from User where email=? and username!=?");
+		query.setString(0, email);
+		query.setString(1, username);
+		User user =(User)query.uniqueResult();
+		if(user==null)
+			return true;
+		else
+		    return false;
+	}
 	
 	
 	
