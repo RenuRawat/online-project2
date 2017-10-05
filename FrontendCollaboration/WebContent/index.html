@@ -8,9 +8,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
 
  
 <script src="js/MainRoute.js"></script>
@@ -38,7 +38,7 @@
                     <span class="icon-bar"></span>
                 </button>
      <div class="navbar-header">
-     <a class="navbar-brand" href="#/home">RR</a>
+     <a class="navbar-brand" href="/">RR</a>
      
      </div>
      
@@ -58,12 +58,14 @@
       
  <ul class="nav navbar-nav navbar-right">
    
-    <li><a href="#/register" ng-hide="currentUser.online" ><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-    <li><a href="#/login" ng-hide="currentUser.online" ><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
-    <li><a href="#/editprofile" ng-hide="currentUser.online" ><span class="glyphicon glyphicon-user"></span>Edit Profile</a></li>
-    
-    <li><a href="#" ng-show="currentUser.online" >Welcome {{currentUser.username}}</a></li>
-     <li><a href="" ng-click="logout()" ng-show="currentUser.online" >Logout</a></li> 
+   <li><a href="#/register" ng-hide="currentUser.online"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+   <li><a href="#/login" ng-hide="currentUser.online"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+    <li><a href="#/editprofile" ng-hide="currentUser.online"><span class="glyphicon glyphicon-log-in"></span>Edit Profile</a></li>
+     
+<!--     <li><a href="#" ng-show="currentUser.online" >Welcome {{currentUser.username}}</a></li>
+    <li><a href="" ng-click="logout()" ng-show="currentUser.online">Logout</a></li> -->
+   
+  
  
     
    
@@ -76,7 +78,7 @@
   
   </div>   
 </nav>
-</header>
+</header> <br><br>
 <div ng-view></div>
 
 </body>

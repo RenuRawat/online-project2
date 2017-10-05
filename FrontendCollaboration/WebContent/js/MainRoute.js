@@ -5,7 +5,7 @@
 var app=angular.module("app",['ngRoute', 'ngCookies'])
 app.config(function($routeProvider)
 {
-	$routeProvider .when('/home',{templateUrl:'views/home.html'
+	$routeProvider .when('/home',{templateUrl:'views/Home.html'
 	                    })
 	               .when('/login',{templateUrl:'views/Login.html',controller:'UserController'
 	            	   })
@@ -18,7 +18,7 @@ app.config(function($routeProvider)
 
 })
 
-app.run(function($rootScope,UserService,$location,$cookieStore) {
+app.run(function($rootScope,$cookieStore,UserService,$location) {
 	console.log('entering app.run function')
 	if($rootScope.currentUser==undefined)
   //reassign the user details to currentUser variable

@@ -148,7 +148,8 @@ public ResponseEntity<?> updateUser(@RequestBody User user,HttpSession session)
 		
 		Error error=new Error(4,"Unable to update user details");
 		return new ResponseEntity<Error>(error,HttpStatus.INTERNAL_SERVER_ERROR);
-	}}
+	}
+	}
 
 
 	

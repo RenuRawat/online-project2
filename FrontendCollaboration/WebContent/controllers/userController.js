@@ -51,7 +51,7 @@ app.controller('UserController', function($scope,UserService,$location,$rootScop
 	  
 	}
 	
-	
+
 	$scope.updateUser=function()
 	{
 	  UserService.updateUser($scope.user).then(function(response)
@@ -66,7 +66,7 @@ app.controller('UserController', function($scope,UserService,$location,$rootScop
 			$location.path('/editprofile') 
 		 } })
 	 }
-				 
+			 
 	
 	
 	
