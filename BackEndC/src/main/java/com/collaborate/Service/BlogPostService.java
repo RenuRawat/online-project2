@@ -12,5 +12,7 @@ public interface BlogPostService {
 	
 	void addBlogPost(BlogPost blogPost);
 	List<BlogPost> getBlogs(int approved); //0
+	
+	BlogPost getBlogById(int id);
 
 }

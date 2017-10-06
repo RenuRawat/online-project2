@@ -1,4 +1,4 @@
-<!-- <html>
+<html>
 
 
 <head>
@@ -17,7 +17,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 </head>
 
-<body> -->
+<body> 
 
 
 <div class="container">
@@ -51,11 +51,17 @@ Enter Password:
 </div><span style='color:red'>{{error.message}}</span>
 </div>
 
-<input type="submit" class="btn btn-primary btn-lg btn-block login-button" ng-click="login()">
+<div class="single-bottom">
+<input type="checkbox"  id="remember" value="">
+<label for="remember"><span></span>Remember Me</label>
+</div>
+
+<button class="btn btn-primary btn-md btn-block login-button" type="submit" ng-click="login()" >Login</button>
+<button class="btn btn-primary btn-md btn-block login-button" type="reset">Cancel</button>
 
 </form>
 
 </div></div></div>
 
-<!-- </body>
-</html> -->
+</body>
+</html>

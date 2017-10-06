@@ -18,6 +18,10 @@ app.factory('BlogPostService',function($http) {
 		return $http.get(BASE_URL + "/getblogs/"+1)
 	}
 	
-		
+	blogPostService.getBlogPostById=function(id) {
+		return $http.get(BASE_URL + "/getblogbyid/"+id)
+	}
+	
+	
 	return blogPostService;
 })

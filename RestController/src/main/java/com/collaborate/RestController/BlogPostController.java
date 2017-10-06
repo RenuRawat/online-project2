@@ -72,7 +72,7 @@ public class BlogPostController {
 	
 	
 	
-	@GetMapping(value="/getblogs/{approved")
+	@GetMapping(value="/getblogs/{approved}")
 	// /getblogs/0 -> blogs waiting for approval
 	// /getblogs/1 -> blogs which are approved
 	public ResponseEntity<?>getBlogs(@PathVariable int approved,HttpSession session)
@@ -88,6 +88,20 @@ public class BlogPostController {
 		}
 		
 		
+	@GetMapping(value="/getblogbyid/{id}")
+	public ResponseEntity<?>getBlogById(@PathVariable int id,HttpSession session)
+	{
+		String username=(String)session.getAttribute("username");
+		if(username==null)
+		{
+			Error error=new Error(5,"Unauthorized access....plaese login...");
+			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+		}
+	BlogPost blogpost=blogPostService.getBlogById(id);
+	return new ResponseEntity<BlogPost>(blogpost, HttpStatus.OK);
+	}
+	
+	
 	
 	
 	

@@ -28,4 +28,10 @@ public class BlogPostServiceImpl implements BlogPostService {
 	return blogPostDao.getBlogs(approved);
 	}
 
+
+	
+	public BlogPost getBlogById(int id) {
+	return  blogPostDao.getBlogById(id);
+	}
+
 }

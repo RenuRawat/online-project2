@@ -15,8 +15,19 @@ app.config(function($routeProvider)
 	            	.when('/editprofile',{templateUrl:'views/EditProfile.html', controller:'UserController'})  
 	            	
 	            	.when('/addblogpost',{templateUrl:'views/blogPostForm.html', controller:'BlogPostController'})
+	            	.when('/getblogs' ,{templateUrl:'views/blogsList.html', controller:'BlogPostController'})
+	            	
+	            	
+	            	
+	            	.when('getblogbyid/:id' , { //blogs approved
+	            		templateUrl:'views/blogDetails.html', controller:'BlogPostDetailController'
+	            			})
+	            	.when('/getapprovalform/:id' ,{templateUrl:'views/blogApproval.html',controller:'BlogPostDetailController'
+	            		})		
+	            			
+	            	
 	             	  
-	              .otherwise({templateUrl:'views/home.html'})
+	              .otherwise({templateUrl:'views/Home.html'})
 
 })
 
