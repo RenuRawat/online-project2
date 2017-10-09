@@ -18,4 +18,36 @@ app.controller('BlogPostController',function($scope,BlogPostService,$location) {
 		})
 		
 	}
+	
+	/*
+	 * List of blogs which are approved
+	 */
+	
+	function blogsApproved(){
+		
+	BlogPostService.blogsAapproved().then(function(response) {
+		$scope.listOfBlogsApproved=response.data //List<blogPost> approved(1)
+	}, function(response) {
+		if(responser.status==401)
+			$location.path('/login')
+	})
+
+}
+	
+	/*
+	 * List of blogs waiting for approval
+	 */
+	
+	function blogsWaitingForApproval(){
+		BlogPostService.blogsWaitingForApproval().then(function(response){
+			$scope.listOfBlogsWaitingForApproval=response.data //List<blogPost> waiting for approval(0)
+    	}, function(response){
+    		if(response.status==401)
+    			$location.path('/login')
+    	})
+	}
+	
+	blogsApproved()
+	blogsWaitingForApproval()
+	
 })

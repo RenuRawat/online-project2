@@ -10,6 +10,8 @@ public interface BlogPostDao {
 	List<BlogPost> getBlogs(int approved); //0/1
 	
 	BlogPost getBlogById(int id);
+	
+	void updateBlogPost(BlogPost blogPost);
 
 
 }

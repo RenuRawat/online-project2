@@ -51,6 +51,13 @@ public class BlogPostImpl implements BlogPostDao {
 		return blogPost;
 	}
 
+
+
+	public void updateBlogPost(BlogPost blogPost) {
+	Session session=sessionFactory.getCurrentSession();
+	session.update(blogPost); //update approved
+	}
+
 	
 	
 }

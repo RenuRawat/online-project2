@@ -1,4 +1,17 @@
-{{blogPost.blogTitle}}<br>
-{{blogPost.blogContent}}<br>
+<div class="row">
+<div>
+<div class="panel panel-default">
+<div class="pannel-heading">
+<div>{{blogPost.blogTitle}}</div>
+<span><strong>Created By:</strong>{{blogPost.postedBy.username}}</span>
+<span><strong>on: </strong>{{blogPost.PostedOn | date:'MM/dd/yyyy HH:mm'}}</span>
 
-<b>TextArea for entering comments</b>
+</div>
+<div class="panel-body">{{blogPost.blogContent}}</div>
+
+</div>
+</div>
+</div>
+
+
+<b>TextArea for posting comments</b>

@@ -19,9 +19,10 @@ app.config(function($routeProvider)
 	            	
 	            	
 	            	
-	            	.when('getblogbyid/:id' , { //blogs approved
+	            	.when('/getblogbyid/:id' , { //blogs approved
 	            		templateUrl:'views/blogDetails.html', controller:'BlogPostDetailController'
 	            			})
+	            			
 	            	.when('/getapprovalform/:id' ,{templateUrl:'views/blogApproval.html',controller:'BlogPostDetailController'
 	            		})		
 	            			

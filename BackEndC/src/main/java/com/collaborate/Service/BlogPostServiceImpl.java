@@ -34,4 +34,11 @@ public class BlogPostServiceImpl implements BlogPostService {
 	return  blogPostDao.getBlogById(id);
 	}
 
+
+	
+	public void updateBlogPost(BlogPost blogPost) {
+	blogPostDao.updateBlogPost(blogPost);	
+		
+	}
+
 }

@@ -1,4 +1,5 @@
-<div ng-show="currentUser.role=='ADMIN'">
+ <div ng-show="currentUser.role=='ADMIN'"> 
+
 <b>List of Blogs Waiting for Approval</b>
 
 <table class="table table-striped">
@@ -10,10 +11,12 @@
 </thead>
 
 <tbody>
-<tr ng-repeat="blogPost in listofBlogWaitingForApproval">
-<td><a href="#/getapprovalform/{{blogPost.id}}">{{blogPost.blogTitle}}</a></td>
+<tr ng-repeat="blogPost in listOfBlogsWaitingForApproval">
+ <td><a href="#/getapprovalform/{{blogPost.id}}">{{blogPost.blogTitle}}</a></td>
+
 <td>{{blogPost.postedBy.username}}</td>
 <td>{{blogPost.postedOn | date : 'MM/dd/yyyy HH:mm'}}</td>
+
 </tr>
 </tbody>
 </table>
@@ -32,8 +35,9 @@
 </thead>
 
 <tbody>
-<tr ng-repeat="blogPost in listofBlogsApproved">
+<tr ng-repeat="blogPost in listOfBlogsApproved">
 <td><a href="#/getblogbyid/{{blogPost.id}}">{{blogPost.blogTitle}}</a></td>
+
 <td>{{blogPost.postedBy.username}}</td>
 <td>{{blogPost.postedOn | date : 'MM/dd/yyyy HH:mm'}}</td>
 </tr>

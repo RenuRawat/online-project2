@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.collaborate.Model.BlogPost;
@@ -99,6 +100,22 @@ public class BlogPostController {
 		}
 	BlogPost blogpost=blogPostService.getBlogById(id);
 	return new ResponseEntity<BlogPost>(blogpost, HttpStatus.OK);
+	}
+	
+	
+	@PutMapping(value="/updateblog")
+	public ResponseEntity<?> updateBlogPost(@RequestBody BlogPost blogPost,HttpSession session) {
+		String username=(String)session.getAttribute("username");
+		if(username==null) 
+			{
+				Error error=new Error(5,"Unauthorized access....");
+				return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+			}
+		// admin has rejected the blogpost but reason not mentioned
+		if(!blogPost.isApproved() && blogPost.getRejectionReason()==null)
+			blogPost.setRejectionReason("Not Mentioned");
+		blogPostService.updateBlogPost(blogPost);
+		return new ResponseEntity<BlogPost>(blogPost,HttpStatus.OK);
 	}
 	
 	
