@@ -12,6 +12,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
 
+ <link href="assets/mycss/like.css" rel="stylesheet">
  
 <script src="js/MainRoute.js"></script>
 
@@ -53,14 +54,15 @@
    
      
    <div class="collapse navbar-collapse" id="collapse-example">
-  <ul class="nav navbar-nav">
+  
+  <ul class="nav navbar-nav" >
   <li><a href="#/home"><span class="glyphicon glyphicon-home"></span> HOME</a></li>
     <li><a href="#/addblogpost"  ng-show="currentUser.online" >Add Blog Post</a></li>
   
 
   </ul>
      
-  
+ 
  <!--  ng-hide="currentUser.online" -->
  <!--  ng-show="currentUser.online" {{currentUser.firstname}} {{currentUser.surname}}-->
       
@@ -68,7 +70,7 @@
    
    <li><a href="#/register" ng-hide="currentUser.online"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
    <li><a href="#/login" ng-hide="currentUser.online"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
-    <li><a href="#/editprofile" ng-hide="currentUser.online"><span class="glyphicon glyphicon-log-in"></span>Edit Profile</a></li>
+    <li><a href="#/editprofile" ng-show="currentUser.online"><span class="glyphicon glyphicon-log-in"></span>Edit Profile</a></li>
   
    
     
@@ -79,7 +81,7 @@
     <li><a href="#/getblogs" >get All Blogs</a></li>
     </ul> </li>
     
-    <li><a href="#"  >Welcome {{currentUser.firstname}} {{currentUser.surname}}</a></li>
+    <li><a href="#" >Welcome {{currentUser.firstname}} {{currentUser.surname}}</a></li>
     <li><a href="" ng-click="logout()" >Logout</a></li> 
    
   

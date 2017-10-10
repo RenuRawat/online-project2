@@ -39,7 +39,14 @@ public class BlogPostImpl implements BlogPostDao {
 	Session session=sessionFactory.getCurrentSession();
 	// if approved=0, select* from blogPost where approved=0; blogs waiting for approval
 	// if approved=1, select* from blogPost where approved=1; blogs which are approved
-	Query query =session.createQuery("from BlogPost where approved=" +approved);
+	
+	String queryStr="";
+	if(approved==1)
+		queryStr="from BlogPost where approved=" +approved;
+	else
+		queryStr="from BlogPost where rejectionReason is null and approved=" +approved;
+	
+	Query query =session.createQuery(queryStr);	
 	return query.list();
 	}
 
