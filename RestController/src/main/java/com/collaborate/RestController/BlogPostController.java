@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.collaborate.Model.BlogComment;
 import com.collaborate.Model.BlogPost;
 import com.collaborate.Model.Error;
 import com.collaborate.Model.User;
@@ -117,6 +118,35 @@ public class BlogPostController {
 		blogPostService.updateBlogPost(blogPost);
 		return new ResponseEntity<BlogPost>(blogPost,HttpStatus.OK);
 	}
+	
+	
+	
+	@PostMapping(value="/addcomment")
+	// blogComment : ('commentText' : 'thanks(comment)','blogpost' :('id':387,'blogTitle':'introduction to spring...',...)
+	public ResponseEntity<?> addBlogComment(@RequestBody BlogComment blogComment,HttpSession session) {
+		String username=(String)session.getAttribute("username");
+		if(username==null) 
+			{
+				Error error=new Error(5,"Unauthorized access....");
+				return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+			}
+		User user=userService.getUserByUsername(username);
+		blogComment.setCommentedBy(user);
+		blogComment.setCommentedOn(new Date());
+		try {
+			blogPostService.addBlogComment(blogComment);
+			return new ResponseEntity<BlogComment>(blogComment,HttpStatus.OK);
+		} catch(Exception e)
+		{
+			Error error=new Error(7,"Unable to post comments");
+			return new ResponseEntity<Error>(error,HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+	}
+		
+	
+	
+	
 	
 	
 	

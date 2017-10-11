@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.collaborate.Dao.BlogPostDao;
+import com.collaborate.Model.BlogComment;
 import com.collaborate.Model.BlogPost;
 
 
@@ -63,6 +64,17 @@ public class BlogPostImpl implements BlogPostDao {
 	public void updateBlogPost(BlogPost blogPost) {
 	Session session=sessionFactory.getCurrentSession();
 	session.update(blogPost); //update approved
+	}
+
+
+
+	public void addBlogComment(BlogComment blogComment) {
+	Session session=sessionFactory.getCurrentSession();
+	System.out.println("blogComment");
+	session.save(blogComment);
+	System.out.println("blogComment1");
+
+		
 	}
 
 	

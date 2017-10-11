@@ -57,7 +57,13 @@
   
   <ul class="nav navbar-nav" >
   <li><a href="#/home"><span class="glyphicon glyphicon-home"></span> HOME</a></li>
-    <li><a href="#/addblogpost"  ng-show="currentUser.online" >Add Blog Post</a></li>
+  <li><a href="#/editprofile" ng-show="currentUser.isOnline"><span class="glyphicon glyphicon-log-in"></span>Edit Profile</a></li>
+  
+    <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" >Blog <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+    <li><a href="#/addblogpost" >Add Blog Post</a></li>
+    <li><a href="#/getblogs" >get All Blogs</a></li>
+    </ul> </li>
   
 
   </ul>
@@ -68,21 +74,14 @@
       
  <ul class="nav navbar-nav navbar-right">
    
-   <li><a href="#/register" ng-hide="currentUser.online"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-   <li><a href="#/login" ng-hide="currentUser.online"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
-    <li><a href="#/editprofile" ng-show="currentUser.online"><span class="glyphicon glyphicon-log-in"></span>Edit Profile</a></li>
+   <li><a href="#" ng-show="currentUser.isOnline" >Welcome {{currentUser.firstname}} {{currentUser.surname}}</a></li>
+   <li><a href="#/register" ng-hide="currentUser.isOnline"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+   <li><a href="#/login" ng-hide="currentUser.isOnline"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+    
   
    
     
-    
-    <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" >Blog <b class="caret"></b></a>
-    <ul class="dropdown-menu">
-    <li><a href="#/addblogpost" >Add Blog Post</a></li>
-    <li><a href="#/getblogs" >get All Blogs</a></li>
-    </ul> </li>
-    
-    <li><a href="#" >Welcome {{currentUser.firstname}} {{currentUser.surname}}</a></li>
-    <li><a href="" ng-click="logout()" >Logout</a></li> 
+    <li><a href="" ng-click="logout()" ng-show="currentUser.isOnline" >Logout</a></li> 
    
   
  

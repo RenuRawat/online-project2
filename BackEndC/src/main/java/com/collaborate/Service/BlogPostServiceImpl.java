@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.collaborate.Dao.BlogPostDao;
 import com.collaborate.Dao.UserDao;
+import com.collaborate.Model.BlogComment;
 import com.collaborate.Model.BlogPost;
 
 @Service
@@ -39,6 +40,11 @@ public class BlogPostServiceImpl implements BlogPostService {
 	public void updateBlogPost(BlogPost blogPost) {
 	blogPostDao.updateBlogPost(blogPost);	
 		
+	}
+
+
+	public void addBlogComment(BlogComment blogComment) {
+     blogPostDao.addBlogComment(blogComment);		
 	}
 
 }

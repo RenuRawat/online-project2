@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.collaborate.Model.BlogComment;
 import com.collaborate.Model.BlogPost;
 
 @Service
@@ -16,5 +17,7 @@ public interface BlogPostService {
 	BlogPost getBlogById(int id);
 	
 	void updateBlogPost(BlogPost blogPost);
+	
+	void addBlogComment(BlogComment blogComment);
 
 }

@@ -30,6 +30,11 @@ app.factory('BlogPostService',function($http) {
 		return $http.put(BASE_URL + "/updateblog", blogPost)
 	}
 	
+	blogPostService.addComment=function(blogComment){
+		console.log(blogComment)
+		return $http.post(BASE_URL + "/addcomment", blogComment)
+	}
+	
 	
 	return blogPostService;
 })

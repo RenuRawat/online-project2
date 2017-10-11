@@ -2,6 +2,7 @@ package com.collaborate.Dao;
 
 import java.util.List;
 
+import com.collaborate.Model.BlogComment;
 import com.collaborate.Model.BlogPost;
 
 public interface BlogPostDao {
@@ -12,6 +13,8 @@ public interface BlogPostDao {
 	BlogPost getBlogById(int id);
 	
 	void updateBlogPost(BlogPost blogPost);
+	
+	void addBlogComment(BlogComment blogComment);
 
 
 }

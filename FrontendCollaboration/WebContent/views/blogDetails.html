@@ -19,12 +19,10 @@
 <a><span class="glyphicon glyphicon-thumbs-up" ng-class="isLiked?'liked':'default' " ng-click="updateLikes()"></span></a>
 
 <br><br>
-<form>
-<div class="form-group">
+
 <b>Enter Blog Comments</b>
 <br>
-<textarea rows="5" cols="20" placeholder="Write a comment" class="form-controller"></textarea>
+<textarea rows="3" cols="40" ng-model="blogComment.commentText" placeholder="Write a comment"></textarea>
 
-</div>
-<input type="submit" value="Post" ng-click="blogComment()"> 
-</form>
+
+<button class="btn btn-primary" value="Post Comment" ng-click="addComment()">Post Comment</button> 

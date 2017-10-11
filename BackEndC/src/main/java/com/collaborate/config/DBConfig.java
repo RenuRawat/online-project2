@@ -29,6 +29,7 @@ import com.collaborate.DaoImpl.FriendDaoImpl;
 import com.collaborate.DaoImpl.JobsDaoImpl;
 import com.collaborate.DaoImpl.UserDaoImpl;
 import com.collaborate.Model.Blog;
+import com.collaborate.Model.BlogComment;
 import com.collaborate.Model.BlogPost;
 import com.collaborate.Model.Chat;
 import com.collaborate.Model.Forum;
@@ -92,6 +93,7 @@ public class DBConfig {
 		localSessionFactoryBuilder.addAnnotatedClass(User.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Blog.class);
 		localSessionFactoryBuilder.addAnnotatedClass(BlogPost.class);
+		localSessionFactoryBuilder.addAnnotatedClass(BlogComment.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Forum.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Friend.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Jobs.class);

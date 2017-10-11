@@ -18,9 +18,10 @@
 <form>
 <div class="from-group">
 <input type="radio" ng-model="blogPost.approved" value="true" ng-click="showRejectionTxt(false)">Approve
-<input type="radio" ng-model="blogPost.approved" value="false" ng-click="showRejectionTxt(true)">Reject<br>
+<input type="radio" ng-model="blogPost.approved" value="false" ng-click="showRejectionTxt(true)">Reject<br><br>
 <p ng-show="isRejected">
 Enter Rejection Reason
+<br>
 <textarea rows="5" cols="20" ng-model="blogPost.rejectionReason" class="form-controller"></textarea>
 </div>
 <input type="submit" value="update" ng-click="updateBlogPost()">

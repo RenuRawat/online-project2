@@ -56,5 +56,25 @@ app.controller('BlogPostDetailController',function($scope,$location,BlogPostServ
 	$scope.showRejectionTxt=function(val){
 		$scope.isRejected=val    //true/false
 	}
+	
+	
+	
+	$scope.addComment=function(){
+	 console.log($scope.blogComment) //commenttext property in blogcomment
+	 $scope.blogComment.blogPost=$scope.blogPost  //blogPost property in blogComment
+	 console.log($scope.blogComment)
+	 BlogPostService.addComment($scope.blogComment).then(function(response) {
+	 console.log(response.data)	 
+		 //getBlogComments();
+	 }, function(response) {
+		 if(response.status==401)
+			 $location.path('/login')
+		else
+			$location.path('/getblogbyid/'+id) //blogdetails.html
+			
+	 })
+		
+	}
+	
     
 })
