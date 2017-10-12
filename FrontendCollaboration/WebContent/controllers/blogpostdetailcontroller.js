@@ -64,6 +64,7 @@ app.controller('BlogPostDetailController',function($scope,$location,BlogPostServ
 		$scope.isRejected=val    //true/false
 	}
 	
+
 	
 	
 	$scope.addComment=function(){

@@ -61,7 +61,6 @@ public class DBConfig {
 		
 	}
 	
-	
 	// 2 create a Hibernate property for Datasource itz mentory,,,, which is used for LocalSessionFactory
 	
 	@Autowired

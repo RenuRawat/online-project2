@@ -40,5 +40,6 @@ app.factory('BlogPostService',function($http) {
 		return $http.get(BASE_URL + "/getcomments/" + blogPostId)
 	}
 	
+	
 	return blogPostService;
 })

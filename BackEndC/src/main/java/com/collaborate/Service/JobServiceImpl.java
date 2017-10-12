@@ -9,6 +9,7 @@ import com.collaborate.Model.Job;
 @Service
 public class JobServiceImpl implements JobService {
 
+
 	
 @Autowired
 private JobDao jobDao;

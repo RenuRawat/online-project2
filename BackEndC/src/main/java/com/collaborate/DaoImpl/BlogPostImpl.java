@@ -78,7 +78,6 @@ public class BlogPostImpl implements BlogPostDao {
 	}
 
 
-
 	public List<BlogComment> getBlogComments(int blogPostId) {
 		Session session=sessionFactory.getCurrentSession();
 		System.out.println("comments");

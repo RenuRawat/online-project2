@@ -22,8 +22,7 @@ public class JobDaoImpl implements JobDao {
 	}
 
 	
-	public void addJob(Job job) {
-		
+	public void addJob(Job job) {	
 		
 	}
 	

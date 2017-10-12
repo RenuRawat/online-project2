@@ -26,7 +26,6 @@ private	UserService userService;
 private JobService jobService;	
 	
 	
-
 @PostMapping(value="/addjob")
 public ResponseEntity<?> addJob(@RequestBody Job job,HttpSession session)
 {

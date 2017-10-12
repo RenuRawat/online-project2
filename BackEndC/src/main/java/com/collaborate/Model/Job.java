@@ -20,8 +20,7 @@ public class Job {
 	
 	private Date postedOn;
 	
-	
-	
+		
 	
 
 	public int getId() {
