@@ -1,19 +1,14 @@
 package com.collaborate.Dao;
 
-import java.util.List;
 
-import com.collaborate.Model.Jobs;
-
+import com.collaborate.Model.Job;
 
 
-public interface JobsDao {
+
+public interface JobDao {
 
 	
-	public boolean createJob(Jobs job);
-	public Jobs getJob(int jobId);
-	public List<Jobs> getJobs();
+void addJob(Job job);
 	
-	public boolean editJob(int jobId);
-	public boolean deleteJob(int jobId);
 	
 }

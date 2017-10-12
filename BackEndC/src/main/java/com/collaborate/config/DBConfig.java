@@ -19,14 +19,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.collaborate.Dao.ChatDao;
 import com.collaborate.Dao.ForumDao;
 import com.collaborate.Dao.FriendDao;
-import com.collaborate.Dao.JobsDao;
+import com.collaborate.Dao.JobDao;
 import com.collaborate.Dao.UserDao;
 import com.collaborate.DaoImpl.BlogDaoImpl;
 import com.collaborate.DaoImpl.BlogPostImpl;
 import com.collaborate.DaoImpl.ChatDaoImpl;
 import com.collaborate.DaoImpl.ForumDaoImpl;
 import com.collaborate.DaoImpl.FriendDaoImpl;
-import com.collaborate.DaoImpl.JobsDaoImpl;
+import com.collaborate.DaoImpl.JobDaoImpl;
 import com.collaborate.DaoImpl.UserDaoImpl;
 import com.collaborate.Model.Blog;
 import com.collaborate.Model.BlogComment;
@@ -34,7 +34,7 @@ import com.collaborate.Model.BlogPost;
 import com.collaborate.Model.Chat;
 import com.collaborate.Model.Forum;
 import com.collaborate.Model.Friend;
-import com.collaborate.Model.Jobs;
+import com.collaborate.Model.Job;
 import com.collaborate.Model.User;
 
 @Configuration
@@ -96,7 +96,7 @@ public class DBConfig {
 		localSessionFactoryBuilder.addAnnotatedClass(BlogComment.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Forum.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Friend.class);
-		localSessionFactoryBuilder.addAnnotatedClass(Jobs.class);
+		localSessionFactoryBuilder.addAnnotatedClass(Job.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Chat.class);
 //		localSessionFactoryBuilder.scanPackages("com.niit.collaborate");
 
@@ -149,9 +149,9 @@ public class DBConfig {
 	
 	@Autowired
 	@Bean
-	public JobsDao getJobsDAO(SessionFactory sessionFactory)
+	public JobDao getJobsDAO(SessionFactory sessionFactory)
 	{
-	return new JobsDaoImpl(sessionFactory);
+	return new JobDaoImpl(sessionFactory);
 	}
 	
 	

@@ -47,4 +47,11 @@ public class BlogPostServiceImpl implements BlogPostService {
      blogPostDao.addBlogComment(blogComment);		
 	}
 
+
+	
+	public List<BlogComment> getBlogComments(int blogPostId) {
+	  return blogPostDao.getBlogComments(blogPostId);
+	
+	}
+
 }

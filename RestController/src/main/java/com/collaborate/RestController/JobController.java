@@ -1,68 +1,59 @@
 package com.collaborate.RestController;
 
-import java.util.ArrayList;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.collaborate.Dao.JobsDao;
-import com.collaborate.Model.Jobs;
+import com.collaborate.Model.Error;
+import com.collaborate.Model.Job;
+import com.collaborate.Model.User;
+import com.collaborate.Service.JobService;
+import com.collaborate.Service.UserService;
 
 @RestController
-public class JobsController {
+public class JobController {
 	
-	@GetMapping("/job")
-	public ResponseEntity<String>testMetod() {
-		
-		return new ResponseEntity<String>("Created", HttpStatus.OK);
-	}
+@Autowired
+private	UserService userService;
+	
+@Autowired	
+private JobService jobService;	
 	
 	
-	@Autowired
-	JobsDao jobsDao;
-	
-	@PostMapping(value="/createJob")
-	public ResponseEntity<String>createJob(@RequestBody Jobs job)
+
+@PostMapping(value="/addjob")
+public ResponseEntity<?> addJob(@RequestBody Job job,HttpSession session)
+{
+	String username=(String)session.getAttribute("username");
+	if(username==null)
 	{
-	  job.setCreateDate(new java.util.Date());
-	  job.setStatus("NA");
-	  
-	  if(jobsDao.createJob(job))
-	  {
-		  return new ResponseEntity<String>("Job table Created", HttpStatus.OK);
-	  } else {
-		  return new ResponseEntity<String>("Problem in Creation",HttpStatus.NOT_ACCEPTABLE);
-	  }
-	  
+		Error error=new Error(5,"Unauthorized access");
+		return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
 	}
 	
+ User user=userService.getUserByUsername(username);
+ if(!user.getRole().equals("ADMIN")) 
+ {	 
+	 Error error=new Error(6,"Access Denied");
+	 return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+ }	 
+ try {
+	 jobService.addJob(job);
+	return new ResponseEntity<Job>(job,HttpStatus.OK);
+ } catch (Exception e) {
+	 Error error=new Error(7,"Unable to insert job details....");
+	 return new ResponseEntity<Error>(error,HttpStatus.NOT_ACCEPTABLE); //exception
 	
-	@GetMapping(value="/getAllJobs")
-	public ResponseEntity<ArrayList<Jobs>>getAlljobs(@PathVariable Jobs job)
-	{
-		ArrayList<Jobs> listjob= new ArrayList<Jobs>();
-		listjob=(ArrayList<Jobs>)jobsDao.getJobs();
-		
-		return new ResponseEntity<ArrayList<Jobs>>(listjob, HttpStatus.OK);
-	}
+ }
+}
 	
 	
-	@GetMapping(value="DeleteJob/{jobid}")
-	public ResponseEntity<String>DeleteJob(@PathVariable ("jobid") int jobId)
-	{
-	 if(jobsDao.deleteJob(jobId))
-	 {
-		return new ResponseEntity<String>("Deleted", HttpStatus.OK);
-	} else {
-		return new ResponseEntity<String>("Problem in Deletion", HttpStatus.OK);
-	}
-	}
 	
 
 }

@@ -146,7 +146,17 @@ public class BlogPostController {
 		
 	
 	
-	
+	@GetMapping(value="/getcomments/{blogPostId}")
+	public ResponseEntity<?> getComments(@PathVariable int blogPostId, HttpSession session) {
+		String username=(String)session.getAttribute("username");
+		if(username==null) 
+			{
+				Error error=new Error(5,"Unauthorized access....");
+				return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+			}
+		List<BlogComment> blogComments=blogPostService.getBlogComments(blogPostId);
+		return new ResponseEntity<List<BlogComment>>(blogComments,HttpStatus.OK);
+	}
 	
 	
 	

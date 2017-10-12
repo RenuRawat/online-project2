@@ -10,8 +10,9 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.collaborate.Dao.JobsDao;
-import com.collaborate.Model.Jobs;
+import com.collaborate.Dao.JobDao;
+import com.collaborate.Model.Job;
+
 
 
 public class JobsDaoTestCase {
@@ -19,8 +20,8 @@ public class JobsDaoTestCase {
 	
 	
 	private static AnnotationConfigApplicationContext context;
-	private static JobsDao jobsDao;
-	private static Jobs job;
+	private static JobDao jobDao;
+	private static Job job;
 	
 	
 	@BeforeClass
@@ -31,16 +32,16 @@ public class JobsDaoTestCase {
 		context.scan("com.collaborate");
 		context.refresh();
 		System.out.println("Before");
-		jobsDao =(JobsDao)context.getBean("jobsDao");
+		jobDao =(JobDao)context.getBean("jobsDao");
 		System.out.println("After");
 	}
 	
 	
 	
-	@Test
+/*	@Test
 	public void createUserTest() 
 	{
-		Jobs job=new Jobs();
+		Job job=new Job();
 		
 		job.setJobId(105);
 		System.out.println("Id");
@@ -121,7 +122,7 @@ public class JobsDaoTestCase {
 			assertTrue("Problem in Deleting", jobsDao.deleteJob(96));
 			
 }
-
+*/
 	
 	
 	

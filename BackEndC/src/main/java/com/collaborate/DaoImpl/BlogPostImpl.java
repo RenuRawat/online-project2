@@ -77,6 +77,17 @@ public class BlogPostImpl implements BlogPostDao {
 		
 	}
 
+
+
+	public List<BlogComment> getBlogComments(int blogPostId) {
+		Session session=sessionFactory.getCurrentSession();
+		System.out.println("comments");
+		Query query=session.createQuery("from BlogComment where blogPost.id=" + blogPostId);
+		System.out.println("comments1");
+		return query.list();
+		
+	}
+
 	
 	
 }

@@ -19,5 +19,7 @@ public interface BlogPostService {
 	void updateBlogPost(BlogPost blogPost);
 	
 	void addBlogComment(BlogComment blogComment);
+	
+	List<BlogComment> getBlogComments(int blogPostId);
 
 }

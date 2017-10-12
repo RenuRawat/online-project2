@@ -1,6 +1,5 @@
 package com.collaborate.Model;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -11,24 +10,74 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="JobTable")
-public class Jobs implements Serializable{
+public class Job {
 	
 	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
-	private int jobId;
-	private String jobProfile, jobDesc, qualification, status;
+	private int id;
+	private String jobTitle, jobDescription, skillsRequired, salary, location, companyname, jobProfile;
 	
-	private Date createDate;
+	private Date postedOn;
+	
+	
 	
 	
 
-	public int getJobId() {
-		return jobId;
+	public int getId() {
+		return id;
 	}
 
-	public void setJobId(int jobId) {
-		this.jobId = jobId;
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getJobTitle() {
+		return jobTitle;
+	}
+
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
+	}
+
+	public String getJobDescription() {
+		return jobDescription;
+	}
+
+	public void setJobDescription(String jobDescription) {
+		this.jobDescription = jobDescription;
+	}
+
+	public String getSkillsRequired() {
+		return skillsRequired;
+	}
+
+	public void setSkillsRequired(String skillsRequired) {
+		this.skillsRequired = skillsRequired;
+	}
+
+	public String getSalary() {
+		return salary;
+	}
+
+	public void setSalary(String salary) {
+		this.salary = salary;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getCompanyname() {
+		return companyname;
+	}
+
+	public void setCompanyname(String companyname) {
+		this.companyname = companyname;
 	}
 
 	public String getJobProfile() {
@@ -39,36 +88,15 @@ public class Jobs implements Serializable{
 		this.jobProfile = jobProfile;
 	}
 
-	public String getJobDesc() {
-		return jobDesc;
+	public Date getPostedOn() {
+		return postedOn;
 	}
 
-	public void setJobDesc(String jobDesc) {
-		this.jobDesc = jobDesc;
+	public void setPostedOn(Date postedOn) {
+		this.postedOn = postedOn;
 	}
+	
+	
 
-	public String getQualification() {
-		return qualification;
-	}
-
-	public void setQualification(String qualification) {
-		this.qualification = qualification;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public Date getCreateDate() {
-		return createDate;
-	}
-
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-
+	
 }

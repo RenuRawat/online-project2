@@ -26,8 +26,10 @@ app.config(function($routeProvider)
 	            	.when('/getapprovalform/:id' ,{templateUrl:'views/blogApproval.html',controller:'BlogPostDetailController'
 	            		})		
 	            			
-	            	.when('/addcomment' ,{templateUrl:'views/blogDetails.html',controller:'BlogPostDetailController'
+	            	/*.when('/addcomment' ,{templateUrl:'views/blogDetails.html',controller:'BlogPostDetailController'
 	            		})	
+	            	.when('/getcomments/ :blogPostId' ,{templateUrl:'views/blogDetails.html',controller:'BlogPostDetailController'
+	            		})*/	
 	             	  
 	              .otherwise({templateUrl:'views/Home.html'})
 
