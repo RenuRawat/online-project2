@@ -16,7 +16,7 @@ public class Job {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
 	private int id;
-	private String jobTitle, jobDescription, skillsRequired, salary, location, companyname, jobProfile;
+	private String jobTitle, jobDescription, skillsRequired, salary, location, companyname;
 	
 	private Date postedOn;
 	
@@ -79,13 +79,7 @@ public class Job {
 		this.companyname = companyname;
 	}
 
-	public String getJobProfile() {
-		return jobProfile;
-	}
 
-	public void setJobProfile(String jobProfile) {
-		this.jobProfile = jobProfile;
-	}
 
 	public Date getPostedOn() {
 		return postedOn;

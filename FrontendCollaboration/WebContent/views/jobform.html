@@ -1,0 +1,53 @@
+<div class="container">
+
+
+<form>
+<div class="form-group">
+Enter Job Title:
+<div class="input-group">
+<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+<input type="text" ng-model="job.jobTitle" placeholder="Enter Your Job Title" class="form-control">
+
+</div>
+</div>
+
+<div class="form-group">
+Enter Job Description:
+<div class="input-group">
+<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+<textarea ng-model="job.jobDescription" placeholder="Enter Your Job Description" class="form-control"></textarea>
+</div></div>
+
+<div class="form-group">
+Enter the value SkillsRequried:
+<div class="input-group">
+<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+<input type="text" ng-model="job.skillsRequired" placeholder="Enter Your Job skills" class="form-control">
+</div></div>
+
+<div class="form-group">
+Enter the value Salary:
+<div class="input-group">
+<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+<input type="text" ng-model="job.salary" placeholder="Enter salary" class="form-control">
+</div></div>
+
+<div class="form-group">
+Enter the value Location
+<div class="input-group">
+<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+<input type="text" ng-model="job.location" placeholder="Enter Location" class="form-control">
+</div>
+</div>
+<div class="form-group">
+Enter Campany Name:
+<div class="input-group">
+<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
+<input type="text" ng-model="job.companyname" placeholder="Enter Company Name" class="form-control">
+</div></div>
+
+
+<input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Post Job" ng-click="addJob()">
+
+</form>
+</div>

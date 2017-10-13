@@ -7,6 +7,10 @@ app.config(function($routeProvider)
 {
 	$routeProvider .when('/home',{templateUrl:'views/Home.html'
 	                    })
+	                    
+	                    
+	                    .when('/demo',{templateUrl:'views/Demo.html'})
+	                    
 	               .when('/login',{templateUrl:'views/Login.html',controller:'UserController'
 	            	   })
 	               .when('/register',{templateUrl:'views/Registration.html',controller:'UserController'
@@ -25,12 +29,8 @@ app.config(function($routeProvider)
 	            			
 	            	.when('/getapprovalform/:id' ,{templateUrl:'views/blogApproval.html',controller:'BlogPostDetailController'
 	            		})		
-	            			
-	            	/*.when('/addcomment' ,{templateUrl:'views/blogDetails.html',controller:'BlogPostDetailController'
-	            		})	
-	            	.when('/getcomments/ :blogPostId' ,{templateUrl:'views/blogDetails.html',controller:'BlogPostDetailController'
-	            		})*/	
-	             	  
+	            	.when('/addjob' ,{templateUrl:'views/jobform.html',controller:'JobController'
+            		})
 	              .otherwise({templateUrl:'views/Home.html'})
 
 })
