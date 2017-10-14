@@ -8,6 +8,9 @@ app.controller('JobController',function($scope,JobService,$location) {
 		JobService.addJob($scope.job).then(function(response) {
 			console.log(response.data)
 			console.log(response.status)
+			
+			getAllJobs()
+			
 			 $location.path('/getalljobs')
 				   
 		 
@@ -18,13 +21,13 @@ app.controller('JobController',function($scope,JobService,$location) {
 		
 		if(response.status==401)  //401
 			{
-			$scope.error(response.data)
+			$scope.error=response.data.message
 			$location.path('/login') 
 			}
 			else//500
 			{
 				
-			$scope.error(response.data)
+				$scope.error=response.data.message
 				$location.path('/addjob')	
 			}
 			})
@@ -41,6 +44,6 @@ app.controller('JobController',function($scope,JobService,$location) {
 				}
 		})
 	}
-	
+	getAllJobs()
 	
 })

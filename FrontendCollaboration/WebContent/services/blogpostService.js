@@ -5,7 +5,7 @@
 
 app.factory('BlogPostService',function($http) {
 	var blogPostService={}
-	var BASE_URL="http://localhost:8086/RestController"
+	var BASE_URL="http://localhost:8084/RestController"
 		blogPostService.addBlogPost=function(blogPost) {
 		return $http.post(BASE_URL + "/addblogpost",blogPost)
 	}

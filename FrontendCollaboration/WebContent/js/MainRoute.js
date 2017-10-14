@@ -31,6 +31,10 @@ app.config(function($routeProvider)
 	            		})		
 	            	.when('/addjob' ,{templateUrl:'views/jobform.html',controller:'JobController'
             		})
+            		.when('/getalljobs' ,{templateUrl:'views/joblist.html',controller:'JobController'
+            		})
+            		
+            		
 	              .otherwise({templateUrl:'views/Home.html'})
 
 })

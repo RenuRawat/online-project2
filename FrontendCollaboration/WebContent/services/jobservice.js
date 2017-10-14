@@ -2,7 +2,7 @@
 
 app.factory('JobService',function($http) {
 	var JobService={}
-	var BASE_URL="http://localhost:8086/RestController"
+	var BASE_URL="http://localhost:8084/RestController"
 		
 		JobService.addJob=function(job) {
 		return $http.post(BASE_URL + "/addjob",job)

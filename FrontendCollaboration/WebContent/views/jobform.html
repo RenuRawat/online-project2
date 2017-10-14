@@ -1,4 +1,5 @@
 <div class="container">
+<span style="color:red">{{error}}</span>
 
 
 <form>
@@ -51,3 +52,35 @@ Enter Campany Name:
 
 </form>
 </div>
+<br><br>
+
+
+
+
+
+
+<pre>
+List of All Jobs
+</pre>
+
+
+
+
+
+
+<table class="table table-striped">
+<thead>
+<tr>
+<th>JobTitle</th>
+<th>PostedOn</th>
+<th>SkillsRequired</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="job in jobs">
+<td><a>{{job.jobTitle}}</a></td>
+<td>{{job.postedOn | date: 'medium'}}</td>
+<td>{{job.skillsRequired}}</td>
+</tr>
+</tbody>
+</table>
