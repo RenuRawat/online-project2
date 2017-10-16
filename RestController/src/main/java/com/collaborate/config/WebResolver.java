@@ -3,6 +3,7 @@ package com.collaborate.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -28,6 +29,14 @@ public class WebResolver extends WebMvcConfigurerAdapter {
 			return internalResolver;
 		}
 			
+	
+	@Bean(name="multipartResolver")
+	public CommonsMultipartResolver getCommonsMultipartResolver() {
+		CommonsMultipartResolver multipartResolver=new CommonsMultipartResolver();
+		multipartResolver.setMaxUploadSize(10240000);
+		return multipartResolver;
+	}
+	
 	
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer)
     {

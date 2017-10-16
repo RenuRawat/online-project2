@@ -27,6 +27,7 @@ import com.collaborate.DaoImpl.ChatDaoImpl;
 import com.collaborate.DaoImpl.ForumDaoImpl;
 import com.collaborate.DaoImpl.FriendDaoImpl;
 import com.collaborate.DaoImpl.JobDaoImpl;
+import com.collaborate.DaoImpl.ProfilePicDaoImpl;
 import com.collaborate.DaoImpl.UserDaoImpl;
 import com.collaborate.Model.Blog;
 import com.collaborate.Model.BlogComment;
@@ -35,6 +36,7 @@ import com.collaborate.Model.Chat;
 import com.collaborate.Model.Forum;
 import com.collaborate.Model.Friend;
 import com.collaborate.Model.Job;
+import com.collaborate.Model.ProfilePicture;
 import com.collaborate.Model.User;
 
 @Configuration
@@ -97,6 +99,7 @@ public class DBConfig {
 		localSessionFactoryBuilder.addAnnotatedClass(Friend.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Job.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Chat.class);
+		localSessionFactoryBuilder.addAnnotatedClass(ProfilePicture.class);
 //		localSessionFactoryBuilder.scanPackages("com.niit.collaborate");
 
 		System.out.println("SessionFactory Bean created");
@@ -169,5 +172,11 @@ public class DBConfig {
 	return new BlogPostImpl(sessionFactory);
 	}
 	
+	@Autowired
+	@Bean
+	public ProfilePicDaoImpl getProfilePic(SessionFactory sessionFactory)
+	{
+	return new ProfilePicDaoImpl(sessionFactory);
+	}
 
 }
