@@ -56,6 +56,7 @@ public ResponseEntity<?> addJob(@RequestBody Job job,HttpSession session)
 	 return new ResponseEntity<Error>(error,HttpStatus.NOT_ACCEPTABLE); //exception
 	
  }
+ 
 }
 	
 	
@@ -84,8 +85,7 @@ public ResponseEntity<?> addJob(@RequestBody Job job,HttpSession session)
 			}
 		Job job=jobService.getJob(jobId);
 		return new ResponseEntity<Job>(job,HttpStatus.OK);
-	 
-	 
+	 	 
 		} 
 	 
 

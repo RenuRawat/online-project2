@@ -27,8 +27,7 @@ app.controller('JobController',function($scope,JobService,$location) {
 			$location.path('/login') 
 			}
 			else//500
-			{
-				
+			{				
 				$scope.error=response.data.message
 				$location.path('/addjob')	
 			}
@@ -50,6 +49,7 @@ app.controller('JobController',function($scope,JobService,$location) {
 			 }
 		})
 	}
+	
 	
 	
 	function getAllJobs() {

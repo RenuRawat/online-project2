@@ -16,6 +16,7 @@ app.factory('JobService',function($http) {
 		return $http.get(BASE_URL + "/getjob/"+jobId)
 	}
 	
+	
 return JobService;	
 }
 )
