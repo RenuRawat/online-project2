@@ -40,6 +40,13 @@ public class JobDaoImpl implements JobDao {
 		return query.list();
 		
 	}
+
+
+	public Job getJob(int jobId) {
+		Session session=sessionFactory.getCurrentSession();
+		Job job=(Job)session.get(Job.class, jobId);
+		return job;
+	}
 	
 
 	

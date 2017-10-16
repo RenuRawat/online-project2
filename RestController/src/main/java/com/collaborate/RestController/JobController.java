@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -70,5 +71,22 @@ public ResponseEntity<?> addJob(@RequestBody Job job,HttpSession session)
 		List<Job> jobs=jobService.getAllJobs();
 		return new ResponseEntity<List<Job>>(jobs,HttpStatus.OK);
 	}
+	 
+	 
+	 @GetMapping(value="getjob/{jobId}")
+	 public ResponseEntity<?> getJob(@PathVariable int jobId, HttpSession session)
+		{
+			String username=(String)session.getAttribute("username");
+			if(username==null)
+			{
+				Error error=new Error(5,"Unauthorized access");
+				return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+			}
+		Job job=jobService.getJob(jobId);
+		return new ResponseEntity<Job>(job,HttpStatus.OK);
+	 
+	 
+		} 
+	 
 
 }

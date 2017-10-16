@@ -31,4 +31,10 @@ private UserDao userDao;
 	return jobDao.getAllJobs();
 	}
 
+
+	public Job getJob(int jobId) {
+	return jobDao.getJob(jobId);
+		
+	}
+
 }

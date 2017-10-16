@@ -4,7 +4,9 @@
 
 app.controller('JobController',function($scope,JobService,$location) {
 	
-	$scope.addJob=function() {
+	$scope.showJobDetails=false;
+	
+	$scope.addJob=function() {		
 		JobService.addJob($scope.job).then(function(response) {
 			console.log(response.data)
 			console.log(response.status)
@@ -31,6 +33,22 @@ app.controller('JobController',function($scope,JobService,$location) {
 				$location.path('/addjob')	
 			}
 			})
+	}
+	
+	
+	$scope.getJobDetails=function(jobId){
+		
+		$scope.showJobDetails=true;
+		
+		JobService.getJobDetails(jobId).then(function(response){
+			$scope.job=response.data
+		},function(response){
+			console.log(response.data)
+		 if(response.status==401)
+			 {
+			 $location.path('/login')
+			 }
+		})
 	}
 	
 	
