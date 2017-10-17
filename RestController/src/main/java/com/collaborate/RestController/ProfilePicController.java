@@ -36,9 +36,12 @@ public class ProfilePicController {
 			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
 		}
 	 
+		// profilepic object used  for data in db table....
 	 ProfilePicture profilePicture=new ProfilePicture();
 	 profilePicture.setUsername(username);
 	 profilePicture.setImage(image.getBytes());
+	 
+	 // call the service then call dao....
 	 profilePicService.uploadProfilePic(profilePicture);
 	 return new ResponseEntity<ProfilePicture>(profilePicture, HttpStatus.OK);
 	}

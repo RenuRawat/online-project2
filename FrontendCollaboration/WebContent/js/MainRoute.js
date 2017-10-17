@@ -10,6 +10,9 @@ app.config(function($routeProvider)
 	                    
 	                    
 	                    .when('/demo',{templateUrl:'views/Demo.html'})
+	                    .when('/profilepic',{templateUrl:'views/ProfilePicDemo.html'})
+	                    .when('/profileInfo',{templateUrl:'views/ProfileInfo.html'})
+	                    
 	                    
 	               .when('/login',{templateUrl:'views/Login.html',controller:'UserController'
 	            	   })
@@ -33,6 +36,10 @@ app.config(function($routeProvider)
             		})
             		.when('/getalljobs' ,{templateUrl:'views/joblist.html',controller:'JobController'
             		})
+            		
+            		
+            		
+            		
             		
             		
 	              .otherwise({templateUrl:'views/Home.html'})
