@@ -30,4 +30,11 @@ public class ProfilePicDaoImpl implements ProfilePicDao {
 		
 	}
 
+
+	public ProfilePicture getProfilePic(String username) {
+		Session session=sessionFactory.getCurrentSession();
+		ProfilePicture profilepic=(ProfilePicture)session.get(ProfilePicture.class, username);
+		return profilepic;
+	}
+
 }

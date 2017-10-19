@@ -5,5 +5,6 @@ import com.collaborate.Model.ProfilePicture;
 public interface ProfilePicDao {
 	
 	void uploadProfilePic(ProfilePicture profilePicture);
+	ProfilePicture getProfilePic(String username);
 
 }

@@ -6,5 +6,6 @@ public interface ProfilePicService {
 	
 	
 	void uploadProfilePic(ProfilePicture profilePicture);
+	ProfilePicture getProfilePicture(String username);
 
 }

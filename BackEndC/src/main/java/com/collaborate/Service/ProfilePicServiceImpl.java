@@ -19,4 +19,8 @@ public class ProfilePicServiceImpl implements ProfilePicService {
 		
 	}
 
+	public ProfilePicture getProfilePicture(String username) {
+		return profilePicDao.getProfilePic(username);
+	}
+
 }
