@@ -10,8 +10,8 @@ app.config(function($routeProvider)
 	                    
 	                    
 	                    .when('/demo',{templateUrl:'views/Demo.html'})
-	                    .when('/uploadprofilepic',{templateUrl:'views/ProfilePicDemo.html'})
-	                    .when('/getimage/:id',{templateUrl:'views/ProfilePicDemo.html'})
+	                    .when('/uploadprofilepic',{templateUrl:'views/ProfilePic.html'})
+	                    
 	                    .when('/profileInfo',{templateUrl:'views/ProfileInfo.html'})
 	                    
 	                    

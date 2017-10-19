@@ -60,9 +60,11 @@
   <ul class="nav navbar-nav" >
   <li><a href="#/home"><span class="glyphicon glyphicon-home"></span> HOME</a></li>
   <li><a href="#/editprofile" ng-show="currentUser.isOnline"><span class="glyphicon glyphicon-log-in"></span> Edit Profile</a></li>
+ 
+ 
   
-  
-  <li><a href="#/uploadprofilepic"><img src="http://localhost:8084/RestController/getimage/{{currentUser.username}}" height="40px" width="40px" alt="upload profile pic">profilepic</a></li>
+  <li><a href="#/uploadprofilepic"  ng-show="currentUser.username">
+  <img src="http://localhost:8084/RestController/getimage/{{currentUser.username}}" height="40px" width="40px" alt="upload profile pic">profilepic</a></li>
    <li><a href="#/profileInfo">profileInfo</a></li>
   
   
