@@ -8,6 +8,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
+
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
@@ -63,8 +64,10 @@
  
  
   
-  <li><a href="#/uploadprofilepic"  ng-show="currentUser.username">
-  <img src="http://localhost:8084/RestController/getimage/{{currentUser.username}}" height="40px" width="40px" alt="upload profile pic">profilepic</a></li>
+  <li><a href="#/uploadprofilepic" >
+  <img src="http://localhost:8084/RestController/getimage/{{currentUser.username}}" height="40px" width="40px" alt="upload profile pic" ng-show="currentUser.username">profilepic</a></li>
+  
+  
    <li><a href="#/profileInfo">profileInfo</a></li>
   
   
