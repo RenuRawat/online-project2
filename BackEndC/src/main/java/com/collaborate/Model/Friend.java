@@ -15,22 +15,33 @@ public class Friend implements Serializable{
 	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
-	private int friendId, userId;
+	private int id;
+	private String fromId;
+	private String toId;
 	private String  status;
 	
 	
 	
-	public int getFriendId() {
-		return friendId;
+	
+	
+	
+	public int getId() {
+		return id;
 	}
-	public void setFriendId(int friendId) {
-		this.friendId = friendId;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public int getUserId() {
-		return userId;
+	public String getFromId() {
+		return fromId;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setFromId(String fromId) {
+		this.fromId = fromId;
+	}
+	public String getToId() {
+		return toId;
+	}
+	public void setToId(String toId) {
+		this.toId = toId;
 	}
 	public String getStatus() {
 		return status;
@@ -38,5 +49,9 @@ public class Friend implements Serializable{
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	
+	
+
 
 }

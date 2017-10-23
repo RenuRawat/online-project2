@@ -2,7 +2,7 @@ package com.collaborate.DaoImpl;
 
 import java.util.List;
 
-import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.collaborate.Dao.FriendDao;
 import com.collaborate.Model.Friend;
+import com.collaborate.Model.User;
 
-
+@Transactional
 @Repository("friendDao")
 public class FriendDaoImpl implements FriendDao {
 
@@ -26,85 +27,24 @@ public class FriendDaoImpl implements FriendDao {
 	}
 	
 	
+
+
+
+	public List<User> listOfSuggestedUsers(String username) {
+		Session session=sessionFactory.getCurrentSession();
+		SQLQuery query=session.createSQLQuery("select  * from admintable where username in "
+				+ "(select username from admintable where username!=? minus "
+				+ "(select fromId from friendtable where toId=? "
+				+ "union select toId from friendtable where fromId=? )"
+				+ ")");
+		query.setString(0, username);
+		query.setString(1, username);
+		query.setString(2, username);
+		query.addEntity(User.class);  //to convert records to User Objects
+		List<User> suggestedUsers=query.list();
+		return suggestedUsers;  //List<User>
+	}
+
 	
-	
-	@Transactional
-	public boolean createFriend(Friend friend) {
-		try {
-			sessionFactory.getCurrentSession().save(friend);
-			return true;
-		} catch(Exception e) {
-		System.out.println("Exception Arised:" +e);
-		return false;
-		}
-	}
-
-	@Transactional
-	public Friend getFriend(int friendId) {
-		return (Friend) sessionFactory.getCurrentSession().get(Friend.class, friendId);
-	}
-
-	@Transactional
-	public List<Friend> getFriends() {
-
-		Session session=sessionFactory.openSession();
-		Query query=session.createQuery("from FriendTable where status='A'");
-		List<Friend> listFriend=query.list();
-		session.close();
-	
-		return listFriend;
-	}
-
-	@Transactional
-	public boolean approveFriend(Friend friend) {
-		try {
-			friend.setStatus("A");
-			sessionFactory.getCurrentSession().save(friend);	
-			System.out.println("Approve");
-			return true;
-		} catch(Exception e) {
-			System.out.println("Exception Arised:"+e); 
-			return false;
-		}
-		
-
-	}
-
-	@Transactional
-	public boolean editFriend(int friendId) {
-		 try
-		  {
-			
-			 
-		Session session = sessionFactory.openSession();	
-		Friend friend = (Friend)session.get(Friend.class, friendId);
-	
-	    session.update(friend);
-		 System.out.println("Update the table");
-		 session.close();
-		 return true;
-		  }
-		  catch(Exception e) 
-		  {
-			 System.out.println("Exception Arised:"+e); 
-			  return false; 
-		  }
-	}
-
-	@Transactional
-	public boolean deleteFriend(int friendId) {
-		try {  
-			Session session = sessionFactory.openSession();
-			
-			Friend friend = (Friend)session.get(Friend.class, friendId);
-	        session.delete(friend);
-	        session.flush();
-	        session.close();
-	        return true;
-	      } catch(Exception e) {
-				System.out.println("Exception Arised:"+e); 
-				return false;
-			}
-	}
 
 }

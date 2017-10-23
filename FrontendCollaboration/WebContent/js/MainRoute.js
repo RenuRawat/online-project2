@@ -43,7 +43,8 @@ app.config(function($routeProvider)
             		.when('/getalljobs' ,{templateUrl:'views/joblist.html',controller:'JobController'
             		})
             		
-            		
+            		.when('/getsuggestedusers' ,{templateUrl:'views/SuggestedFriendList.html',controller:'FriendController'
+            		})
             		
             		
             		

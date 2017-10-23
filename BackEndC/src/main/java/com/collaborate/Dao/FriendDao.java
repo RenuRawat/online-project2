@@ -2,16 +2,12 @@ package com.collaborate.Dao;
 
 import java.util.List;
 
-import com.collaborate.Model.Friend;
+import com.collaborate.Model.User;
 
 public interface FriendDao {
 	
-	
-	public boolean createFriend(Friend friend);
-	public Friend getFriend(int friendId);
-	public List<Friend> getFriends();
-	public boolean approveFriend(Friend friend);
-	public boolean editFriend(int friendId);
-	public boolean deleteFriend(int friendId);
+
+	List<User> listOfSuggestedUsers(String username);   //logged in username
+
 
 }

@@ -32,8 +32,8 @@ public class FriendDaoTestCase {
 		
 		friendDao =(FriendDao)context.getBean("friendDao");
 	}
-	@Ignore
-	@Test
+	
+	/*@Test
 	public void creatFriendTest() {
 	  Friend friend = new Friend();	
 	 
@@ -127,7 +127,7 @@ public class FriendDaoTestCase {
 		assertTrue("Problem in Deleting", friendDao.deleteFriend(91));
 		
 }
-
+*/
 	
 	
 	
