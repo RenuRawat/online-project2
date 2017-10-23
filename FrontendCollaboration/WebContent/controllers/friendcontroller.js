@@ -13,6 +13,19 @@ app.controller('FriendController',function($scope,FriendService,$location) {
 	   })	
 	}   
 	
+	$scope.sendFriendRequest=function(toId){
+		FriendService.sendFriendRequest(toId).then(function(response){
+			alert('Friend Request has been sent successfully')
+			listOfSuggestedUsers()
+			$location.path('/getsuggestedusers')
+		}, function(response){
+			if(response.status==401)
+				$location.path('/login')
+		})
+	}
+	
+	
+	
 	//function call
 	listOfSuggestedUsers()
 	

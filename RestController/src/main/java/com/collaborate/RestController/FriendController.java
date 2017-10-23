@@ -9,8 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.collaborate.Model.Error;
+import com.collaborate.Model.Friend;
 import com.collaborate.Model.User;
 import com.collaborate.Service.FriendService;
 
@@ -37,7 +39,22 @@ public class FriendController {
 	}
 		
 	
-	
+	@GetMapping(value="/friendrequest/{toId}")
+	public ResponseEntity<?>friendRequest(@PathVariable String toId, HttpSession session)
+	{
+		String username=(String)session.getAttribute("username");
+		if(username==null)
+		{
+			Error error=new Error(5,"Unauthorized access");
+			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+		}
+		Friend friend=new Friend();
+		friend.setFromId(username);
+		friend.setToId(toId);
+		friend.setStatus('P');
+		friendService.friendRequest(friend);     //insert into friend table
+	    return new ResponseEntity<Friend>(friend, HttpStatus.OK);
+	}
 	
 	
 

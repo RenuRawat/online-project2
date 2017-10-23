@@ -2,6 +2,7 @@ package com.collaborate.DaoImpl;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -43,6 +44,23 @@ public class FriendDaoImpl implements FriendDao {
 		query.addEntity(User.class);  //to convert records to User Objects
 		List<User> suggestedUsers=query.list();
 		return suggestedUsers;  //List<User>
+	}
+
+
+
+
+
+	public void friendRequest(Friend friend) {
+	Session session=sessionFactory.getCurrentSession();
+	session.save(friend);		
+	}
+
+
+	public List<Friend> pendingRequests(String toId) {
+		Session session=sessionFactory.getCurrentSession();
+		Query query=session.createQuery("from Friend where toId=? and status='P'");
+		query.setString(0, toId);
+		return query.list();
 	}
 
 	

@@ -5,13 +5,13 @@
 <td>{{user.surname}}</td>
 <td>{{user.role}}</td>
 <td>{{user.email}}</td>
-<!-- <td ng-if="user.online">Yes</td>
-<td ng-if="!user.online">No</td> -->
+<td ng-if="user.isOnline">Yes</td>
+<td ng-if="!user.isOnline">No</td>
 
 <td><img alt="Image not Available" src="http://localhost:8084/RestController/getimage/{{user.username}}" 
               height="40px" width="40px">
               
-<td><a class="btn btn-default">Send Friend Request</a></td>
+<td><a class="btn btn-default" ng-click="sendFriendRequest(user.username)">Send Friend Request</a></td>
 </tr>
 </tbody>
 

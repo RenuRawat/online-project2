@@ -18,13 +18,19 @@ public class Friend implements Serializable{
 	private int id;
 	private String fromId;
 	private String toId;
-	private String  status;
+	private char  status;
 	
 	
 	
 	
 	
 	
+	public char getStatus() {
+		return status;
+	}
+	public void setStatus(char status) {
+		this.status = status;
+	}
 	public int getId() {
 		return id;
 	}
@@ -43,12 +49,8 @@ public class Friend implements Serializable{
 	public void setToId(String toId) {
 		this.toId = toId;
 	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
+
+	
 	
 	
 	
