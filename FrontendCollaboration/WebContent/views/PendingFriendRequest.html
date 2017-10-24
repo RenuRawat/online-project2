@@ -3,7 +3,8 @@
 <tbody>
 <tr ng-repeat="request in pendingRequests">
 <td>{{request.fromId}}</td>
-
+<td><img alt="image not available" src="http://localhost:8084/RestController/getimage/{{request.fromId}}" 
+              height="40px" width="40px"">
 <td><a class="btn btn-primary" ng-click="updatePendingRequest(request, 'A')">Accept Friend Request</a></td>
 <td><a class="btn btn-warning" ng-click="updatePendingRequest(request, 'D')">Delete Friend Request</a></td>
 </tr>
