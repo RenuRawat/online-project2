@@ -46,8 +46,8 @@ app.config(function($routeProvider)
             		.when('/getsuggestedusers' ,{templateUrl:'views/SuggestedFriendList.html',controller:'FriendController'
             		})
             		
-            		
-            		
+            		.when('/pendingrequests' ,{templateUrl:'views/PendingFriendRequest.html',controller:'FriendController'
+            		})
             		
 	              .otherwise({templateUrl:'views/Home.html'})
 

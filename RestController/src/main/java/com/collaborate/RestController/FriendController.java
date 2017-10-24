@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.collaborate.Model.Error;
 import com.collaborate.Model.Friend;
@@ -57,5 +59,33 @@ public class FriendController {
 	}
 	
 	
+	@GetMapping(value="/pendingrequests")
+	public ResponseEntity<?>pendingRequests(HttpSession session)
+	{
+		String username=(String)session.getAttribute("username");
+		if(username==null)
+		{
+			Error error=new Error(5,"Unauthorized access");
+			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+		}
+	List<Friend> pendingRequests=friendService.pendingRequests(username);
+	return new ResponseEntity<List<Friend>>(pendingRequests, HttpStatus.OK);
+	}
+	
+	
+	@PutMapping(value="/updatependingrequest")
+	public ResponseEntity<?>updatePendingRequest(@RequestBody Friend friend, HttpSession session)
+	{
+		String username=(String)session.getAttribute("username");
+		if(username==null)
+		{
+			Error error=new Error(5,"Unauthorized access");
+			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+		}
+		System.out.println(friend.getFromId() + " " + friend.getStatus());
+		friendService.updateFriendRequest(friend);   //update status to A or Delete the record.....
+		return new ResponseEntity<Friend>(friend, HttpStatus.OK);
+		
+	}	
 
 }

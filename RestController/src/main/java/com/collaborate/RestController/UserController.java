@@ -71,6 +71,7 @@ public ResponseEntity<?>login(@RequestBody User user,HttpSession session)
 	  //response.data=error and .status=error
 	}
  	
+ 	//System.out.println("ONLINE STATUS BEFORE UPDATE" + validUser.isOnline()); 
  	System.out.println("ONLINE STATUS BEFORE UPDATE" + validUser); //false
  	 // update the online status to true
 		validUser.setIsOnline(true);

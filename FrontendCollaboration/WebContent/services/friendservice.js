@@ -12,5 +12,12 @@ app.factory('FriendService',function($http) {
 		return $http.get(BASE_URL + "/friendrequest/" + toId)
 	   }
 	
+	friendService.pendingRequests=function(){
+		return $http.get(BASE_URL + "/pendingrequests")
+	   }
+	friendService.updatePendingRequest=function(request){  //request is Friend obj (id, fromId, toId, status('A'/'D'))
+		return $http.put(BASE_URL + "/updatependingrequest", request)   //request obj with update status
+	   }
+	
 	return friendService;
 	})

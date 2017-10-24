@@ -30,4 +30,9 @@ public class FriendServiceImpl implements FriendService {
 		return friendDao.pendingRequests(toId);
 	}
 
+	public void updateFriendRequest(Friend friend) {
+		friendDao.updatePendingRequest(friend);
+		
+	}
+
 }
