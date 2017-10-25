@@ -14,4 +14,6 @@ List<Friend> pendingRequests(String toId);
 
 void updateFriendRequest(Friend friend);
 
+List<String> listOfFriends(String username);
+
 }

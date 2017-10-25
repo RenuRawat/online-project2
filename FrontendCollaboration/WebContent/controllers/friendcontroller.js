@@ -22,6 +22,16 @@ app.controller('FriendController',function($scope,FriendService,$location) {
 		})
 	}
 	
+	function listOfFriends(){
+	FriendService.listOfFriends().then(function(response){
+//	alert(response.data)
+	$scope.friends=response.data  //List<String>
+	}, function(response){
+		if(response.status==401)
+			$location.path('/login')
+	})	
+	}
+	
 	
 	$scope.sendFriendRequest=function(toId){
 		FriendService.sendFriendRequest(toId).then(function(response){
@@ -37,9 +47,10 @@ app.controller('FriendController',function($scope,FriendService,$location) {
 	
 	$scope.updatePendingRequest=function(request, statusValue) {  //statusvalue = A/D
 		//before assignment request.status is p(pending)
+		//request.id=422 request.fromId=john    request.toId==admin    request.status=P
 		console.log(request)
 		console.log(request.status)  //P
-		request.status=statusValue
+		request.status=statusValue   //statusValue  A/D
 		console.log(request.status)  //A=(Accept) / D=(Delete)
 		console.log(request)
 		FriendService.updatePendingRequest(request).then(function(response){
@@ -56,5 +67,6 @@ app.controller('FriendController',function($scope,FriendService,$location) {
 	//function call
 	listOfSuggestedUsers()  //select
 	pendingRequests()  //select
+	listOfFriends()    //select
 	})
 	

@@ -6,6 +6,7 @@ import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.type.StandardBasicTypes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -74,6 +75,33 @@ public class FriendDaoImpl implements FriendDao {
 		else
 			session.delete(friend);   //delete from Friend where id=?
 		
+	}
+
+
+
+/* List<String> use for SqlQuery for all friend list without all friend property obj...it return string....("gfdgf,gfh,fg")
+	List<Friend> use for hibernateQuery for all friend list with friend obj.....return all detail
+	*/
+
+	public List<String> listOfFriends(String username) {
+		Session session=sessionFactory.getCurrentSession();
+		SQLQuery sqlQuery1=session.createSQLQuery("select fromId from FriendTable where toId=? and status='A' ")
+				.addScalar("fromId", StandardBasicTypes.STRING);
+		sqlQuery1.setString(0, username);
+		List<String> list1=sqlQuery1.list();
+		
+		System.out.println("RESULT Of 1st QUERY" +list1);
+		
+		SQLQuery sqlQuery2=session.createSQLQuery("select toId from FriendTable where fromId=? and status='A' ")
+				.addScalar("toId", StandardBasicTypes.STRING);
+		sqlQuery2.setString(0, username);
+		List<String> list2=sqlQuery2.list();
+		System.out.println("RESULT Of 2st QUERY" +list2);
+		
+		list1.addAll(list2);  //list1=list1 U list2
+		System.out.println("RESULT Of list1 + list2 " +list1);
+		
+		return list1;
 	}
 
 	

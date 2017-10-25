@@ -35,4 +35,8 @@ public class FriendServiceImpl implements FriendService {
 		
 	}
 
+	public List<String> listOfFriends(String username) {
+		return friendDao.listOfFriends(username);
+	}
+
 }
