@@ -15,10 +15,10 @@ app.config(function($routeProvider)
 	                    
 	                    
 	                    
-	                    .when('/uploadprofilepic',{templateUrl:'views/ProfilePic.html'})
+	                    .when('/chat',{templateUrl:'views/ProfilePic.html'})
 	                    
-	                   
-	                    
+	                   Chatuser.html
+	                   .when('/uploadprofilepic',{templateUrl:'views/Chatuser.html' ,controller:'ChatController'})  
 	                    
 	               .when('/login',{templateUrl:'views/Login.html',controller:'UserController'
 	            	   })

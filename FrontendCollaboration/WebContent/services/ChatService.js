@@ -7,6 +7,25 @@
  * frame==properties=(1=command,2=headers,3=body)
 */
 
+app.filter('reverse', function(){
+	return function(items){
+		return items.slice().reverse();
+	};
+});
+
+
+
+app.directive('ngFocus', function(){
+	return function(scope, element, attrs){
+		element.blind('click',function(){
+			$('-' +attrs.ngFocus)[0].focus();
+		});
+	};
+});
+
+
+
+
 app.factory('socket',function($rootScope)
 	{
 	alert('app factory')
