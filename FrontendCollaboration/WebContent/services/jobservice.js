@@ -16,6 +16,16 @@ app.factory('JobService',function($http) {
 		return $http.get(BASE_URL + "/getjob/"+jobId)
 	}
 	
+	
+	
+	jobService.deleteJob = function(id)
+	{
+		console.log(id)
+		
+		return $http.delete(BASE_URL+"/deleteJob/"+id)
+		
+	}
+	
 
 	// return same variable name=var jobService={} otherwiise jobService not find error
 return jobService;	

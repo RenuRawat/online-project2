@@ -13,12 +13,13 @@ app.config(function($routeProvider)
 	                     .when('/pro',{templateUrl:'views/demoProfile.html'})
 	                    .when('/profileInfo',{templateUrl:'views/ProfileInfo.html'})
 	                    
+	                     .when('/chat',{	templateUrl:'views/chat.html',controller:'ChatController'
+	                    	})
 	                    
+	                   /* .when('/chat',{templateUrl:'views/Chatuser.html'})*/
 	                    
-	                    .when('/chat',{templateUrl:'views/ProfilePic.html'})
-	                    
-	                   Chatuser.html
-	                   .when('/uploadprofilepic',{templateUrl:'views/Chatuser.html' ,controller:'ChatController'})  
+//	               
+                   .when('/uploadprofilepic',{templateUrl:'views/ProfilePic.html' ,controller:'ProfilePicController'})  
 	                    
 	               .when('/login',{templateUrl:'views/Login.html',controller:'UserController'
 	            	   })

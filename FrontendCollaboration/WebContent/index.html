@@ -78,7 +78,7 @@
    <li><a href="#/profileInfo">profileInfo</a></li>
     <li><a href="#/pro">pro</a></li>
     
-    <li><a href="#/chat">Chat</a></li>
+   <!--  <li><a href="#/chat">Chat</a></li> -->
   
   
    <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" >Friend <b class="caret"></b></a>
@@ -88,7 +88,8 @@
      <li><a href="#/friendslist" >Friends List</a></li>
      
      
-    
+     <li><a href="#/chat" ng-show="currentUser.username">chat </a></li>
+   <!--   <li><a href="#" ng-hide="currentUser.firstName==undefined"> Welcome {{currentUser.firstName}}</a></li> -->
    
     </ul> </li>
   
@@ -101,8 +102,9 @@
   
   <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" >Job <b class="caret"></b></a>
     <ul class="dropdown-menu">
+    
     <li><a href="#/addjob" ng-show="currentUser.role=='ADMIN' ">Add Job</a></li>
-    <li><a href="#/getalljobs" >get All Jobs</a></li>
+   <li><a href="#/getalljobs" ng-hide="currentUser.role=='ADMIN' ">Get All Jobs</a></li>
  
     </ul> </li>
 

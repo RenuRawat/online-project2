@@ -39,7 +39,7 @@ public class ChatDaoTestCase {
 	
 	
 	
-	@Test
+	/*@Test
 	public void createUserTest() 
 	{
 		Chat chat=new Chat();
@@ -109,9 +109,9 @@ public class ChatDaoTestCase {
 	
 	
 	
-	/*@Test
+	@Test
 	public void test() {
 		fail("Not yet implemented");
-	}*/
-
+	}
+*/
 }

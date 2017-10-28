@@ -37,11 +37,16 @@ public List<String> join(@DestinationVariable("username") String username){
 //$stomClient.send("app/chat")
 @MessageMapping(value="/chat")
 public void chatRecevied(Chat chat) {
+	
+	
 	if("all".equals(chat.getTo())) {  //group chat
+		System.out.println("IN CHAT REVEIVED " + chat.getMessage() + " " + chat.getFrom() + " to " + chat.getTo());
+		
 		messagingTemplate.convertAndSend("/queue/chats", chat);
 	}
 	else
 	{
+		System.out.println("CHAT TO " + chat.getTo() + " From " + chat.getFrom() + " Message " + chat.getMessage());
 		messagingTemplate.convertAndSend("/queue/chats/" +chat.getFrom(),chat);
 		messagingTemplate.convertAndSend("/queue/chats/" +chat.getTo(),chat);
 	}

@@ -4,6 +4,8 @@
 
 app.controller('JobController',function($scope,JobService,$location) {
 	
+	
+		
 	$scope.showJobDetails=false;
 	
 	$scope.addJob=function() {		
@@ -13,7 +15,8 @@ app.controller('JobController',function($scope,JobService,$location) {
 			
 			getAllJobs()
 			
-			 $location.path('/getalljobs')
+			$scope.job=''
+			 $location.path('/addjob')
 				   
 		 
 		},function(response) {//response.status [401/500]
@@ -34,6 +37,8 @@ app.controller('JobController',function($scope,JobService,$location) {
 			})
 	}
 	
+
+
 	
 	$scope.getJobDetails=function(jobId){
 		
@@ -62,6 +67,26 @@ app.controller('JobController',function($scope,JobService,$location) {
 				}
 		})
 	}
+	
+	
+	
+	$scope.deleteJob = function(id)
+	{
+		
+		JobService.deleteJob(id).then(function(response){
+			alert("Deleted Successfully")
+			getAllJobs();
+			$location.path('/addjob')
+		},function(response){
+			console.log(response.status);
+			console.log(response.message);
+			$scope.error=response.data;
+			$location.path('/login');
+		})
+	}
+	
+	
+	
 	getAllJobs()
 	
 })

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -87,6 +88,21 @@ public ResponseEntity<?> addJob(@RequestBody Job job,HttpSession session)
 		return new ResponseEntity<Job>(job,HttpStatus.OK);
 	 	 
 		} 
+	 
+	 
+	 
+	 @DeleteMapping(value="/deleteJob/{delete}")
+		public ResponseEntity<?> deleteJob(@PathVariable int delete,HttpSession session)
+		{
+		 String username=(String)session.getAttribute("username");
+			if(username==null)
+			{
+				Error error=new Error(5,"Unauthorized access");
+				return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+			}
+			Job job= jobService.deleteJob(delete);
+			return new ResponseEntity<Job>(job,HttpStatus.OK);
+		}
 	 
 
 }

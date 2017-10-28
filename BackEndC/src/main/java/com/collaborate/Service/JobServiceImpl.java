@@ -37,5 +37,11 @@ private UserDao userDao;
 		
 	}
 	
+	
+	public Job deleteJob(int delete) {
+		return jobDao.deleteJob(delete);
+		
+	}
+
 
 }

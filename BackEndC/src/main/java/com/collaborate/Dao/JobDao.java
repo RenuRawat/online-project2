@@ -15,5 +15,7 @@ List<Job> getAllJobs();
 
 Job getJob(int jobId);
 
+Job deleteJob(int delete);
+
 
 }
