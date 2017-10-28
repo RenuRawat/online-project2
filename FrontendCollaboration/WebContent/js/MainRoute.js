@@ -17,8 +17,7 @@ app.config(function($routeProvider)
 	                    	})
 	                    
 	                   /* .when('/chat',{templateUrl:'views/Chatuser.html'})*/
-	                    
-//	               
+	                                  
                    .when('/uploadprofilepic',{templateUrl:'views/ProfilePic.html' ,controller:'ProfilePicController'})  
 	                    
 	               .when('/login',{templateUrl:'views/Login.html',controller:'UserController'
