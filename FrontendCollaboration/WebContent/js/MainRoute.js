@@ -30,8 +30,7 @@ app.config(function($routeProvider)
 	            	
 	            	.when('/addblogpost',{templateUrl:'views/blogPostForm.html', controller:'BlogPostController'})
 	            	.when('/getblogs' ,{templateUrl:'views/blogsList.html', controller:'BlogPostController'})
-	            	
-	            	
+	            	      	
 	            	
 	            	.when('/getblogbyid/:id' , { //blogs approved
 	            		templateUrl:'views/blogDetails.html', controller:'BlogPostDetailController'
