@@ -27,6 +27,7 @@ public class BlogPost {
 	private boolean approved;
 	private String rejectionReason;
 	private int likes;
+	private boolean viewed;
 	
 	
 	
@@ -34,6 +35,12 @@ public class BlogPost {
 	
 	
 	
+	public boolean isViewed() {
+		return viewed;
+	}
+	public void setViewed(boolean viewed) {
+		this.viewed = viewed;
+	}
 	public int getId() {
 		return id;
 	}

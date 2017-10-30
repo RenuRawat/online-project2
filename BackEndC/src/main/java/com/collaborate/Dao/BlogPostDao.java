@@ -17,6 +17,8 @@ public interface BlogPostDao {
 	void addBlogComment(BlogComment blogComment);
 	
 	List<BlogComment> getBlogComments(int blogPostId);
+	
+	List<BlogPost> getNotification(String username);
 
 
 }

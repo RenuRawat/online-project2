@@ -54,4 +54,9 @@ public class BlogPostServiceImpl implements BlogPostService {
 	
 	}
 
+
+	public List<BlogPost> getNotification(String username) {
+		return blogPostDao.getNotification(username);
+	}
+
 }
