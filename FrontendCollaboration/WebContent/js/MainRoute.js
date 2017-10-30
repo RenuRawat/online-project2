@@ -50,11 +50,11 @@ app.config(function($routeProvider)
             		
             		.when('/friendslist' ,{templateUrl:'views/FriendList.html',controller:'FriendController'
             		})
-	              .otherwise({templateUrl:'views/Home.html'})
+	              .otherwise({templateUrl:'views/Home.html',controller:'HomeController'})
 
 })
 
-app.run(function($rootScope,$cookieStore,UserService,$location) {
+app.run(function($rootScope,$cookieStore,UserService,$location,BlogPostService) {
 	console.log('entering app.run function')
 	if($rootScope.currentUser==undefined)
   //reassign the user details to currentUser variable
@@ -79,4 +79,41 @@ app.run(function($rootScope,$cookieStore,UserService,$location) {
 		
 		})
 	}
+	
+	
+	
+	
+	function getNotification(){
+		
+		BlogPostService.getNotification().then(function(respoonse){
+			$rootScope.blogApprovalStatus=response.data   //List of BlogPost
+			$rootScope.approvalStatusLength = $rootScope.blogApprovalStatus.length
+		}, function(response){
+			if(response.status==401)
+				$location.path('/login')
+		})
+	}
+	
+	$rootScope.updateViewedStatus=function(blogPost){
+		blogPost.viewed=1
+		BlogPostService.updateBlogPost(blogPost).then(function(response){
+		getNotification();	
+		
+		}, function(response){
+			if(response.status==401)
+				$location.path('/login')
+		})
+	}
+	
+	$rootScope.updateLength=function()
+	{
+		$rootScope.approvalStatusLength=0
+	}
+	
+	
+	
+	
+	
+	
+	
 })

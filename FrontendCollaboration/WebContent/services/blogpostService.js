@@ -40,6 +40,10 @@ app.factory('BlogPostService',function($http) {
 		return $http.get(BASE_URL + "/getcomments/" + blogPostId)
 	}
 	
+	blogPostService.getNotification=function(){
+		return $http.get(BASE_URL + "/getnotification")
+	}
+	
 	
 	return blogPostService;
 })
