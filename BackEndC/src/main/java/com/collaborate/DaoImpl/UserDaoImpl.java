@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.collaborate.Dao.UserDao;
+import com.collaborate.Model.BlogPost;
 import com.collaborate.Model.User;
 
 
@@ -120,6 +121,12 @@ public class UserDaoImpl implements UserDao {
 			return true;
 		else
 		    return false;
+	}
+
+	public User getUsernameByUsername(String username) {
+		Session session=sessionFactory.getCurrentSession();
+		User user=(User)session.get(User.class, username);
+		return user;
 	}
 	
 	

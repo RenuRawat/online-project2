@@ -12,6 +12,8 @@
 
 <tbody>
 <tr ng-repeat="blogPost in listOfBlogsWaitingForApproval">
+<td><img src="http://localhost:8084/RestController/getimage/{{blogPost.postedBy.username}}" height="60px" width="60px" 
+               alt="Image Not Available" class="img-circle"  ></td>
  <td><a href="#/getapprovalform/{{blogPost.id}}">{{blogPost.blogTitle}}</a></td>
 
 <td>{{blogPost.postedBy.username}}</td>
@@ -36,6 +38,8 @@
 
 <tbody>
 <tr ng-repeat="blogPost in listOfBlogsApproved">
+<td><img src="http://localhost:8084/RestController/getimage/{{blogPost.postedBy.username}}" height="60px" width="60px" 
+               alt="Image Not Available" class="img-circle"  ></td>
 <td><a href="#/getblogbyid/{{blogPost.id}}">{{blogPost.blogTitle}}</a></td>
 
 <td>{{blogPost.postedBy.username}}</td>

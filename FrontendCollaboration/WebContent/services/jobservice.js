@@ -26,6 +26,10 @@ app.factory('JobService',function($http) {
 		
 	}
 	
+	jobService.applyNewJob=function(job) {
+		return $http.post(BASE_URL + "/applyJob",job)
+	}
+	
 
 	// return same variable name=var jobService={} otherwiise jobService not find error
 return jobService;	

@@ -56,6 +56,12 @@ public boolean isUpdatedEmailValid(String email, String username) {
 }
 
 
+public User getUsernameByUsername(String username) {
+	
+	return userDao.getUsernameByUsername(username);
+}
+
+
 
 
 

@@ -7,15 +7,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
+import com.collaborate.Model.Error;
 import com.collaborate.Model.User;
 import com.collaborate.Service.UserService;
-import com.collaborate.Model.Error;
 
 //@RestController
 @Controller
@@ -152,6 +151,20 @@ public ResponseEntity<?> updateUser(@RequestBody User user,HttpSession session)
 	}
 	}
 
+
+
+@GetMapping(value="/getuser/{userid}")
+public ResponseEntity<?> getUsername(@PathVariable String userid, HttpSession session) {
+	String username=(String)session.getAttribute("username");
+	if(username==null)
+	{
+		Error error=new Error(5,"Unauthorized access....plaese login...");
+		return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+	}
+	User user=userService.getUsernameByUsername(userid);
+	return new ResponseEntity<User>(user,HttpStatus.OK);
+
+}
 
 	
 	

@@ -21,5 +21,7 @@ public User getUserByUsername(String username);
 
 public boolean isUpdatedEmailValid(String email, String username);
 
+public User getUsernameByUsername(String username);
+
 
 }

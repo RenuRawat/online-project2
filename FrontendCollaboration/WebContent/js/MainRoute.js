@@ -5,10 +5,13 @@
 var app=angular.module("app",['ngRoute', 'ngCookies'])
 app.config(function($routeProvider)
 {
-	$routeProvider .when('/home',{templateUrl:'views/Home.html'
-	                    })
+	$routeProvider /*.when('/home',{templateUrl:'views/Home.html',controller:'HomeController'
+	                    })*/
 	                    
-	                    
+	.when('/myprofile',{templateUrl:'views/myProfile.html'})
+	/*.when('/friendslist' ,{templateUrl:'views/myProfile.html',controller:'FriendController'
+            		})*/
+	
 	                    .when('/demo',{templateUrl:'views/Demo.html'})
 	                     .when('/pro',{templateUrl:'views/demoProfile.html'})
 	                    .when('/profileInfo',{templateUrl:'views/ProfileInfo.html'})
@@ -42,6 +45,8 @@ app.config(function($routeProvider)
             		.when('/getalljobs' ,{templateUrl:'views/joblist.html',controller:'JobController'
             		})
             		
+            		
+            		
             		.when('/getsuggestedusers' ,{templateUrl:'views/SuggestedFriendList.html',controller:'FriendController'
             		})
             		
@@ -50,6 +55,7 @@ app.config(function($routeProvider)
             		
             		.when('/friendslist' ,{templateUrl:'views/FriendList.html',controller:'FriendController'
             		})
+            		
 	              .otherwise({templateUrl:'views/Home.html',controller:'HomeController'})
 
 })
@@ -85,7 +91,7 @@ app.run(function($rootScope,$cookieStore,UserService,$location,BlogPostService) 
 	
 	function getNotification(){
 		
-		BlogPostService.getNotification().then(function(respoonse){
+		BlogPostService.getNotification().then(function(response){
 			$rootScope.blogApprovalStatus=response.data   //List of BlogPost
 			$rootScope.approvalStatusLength = $rootScope.blogApprovalStatus.length
 		}, function(response){

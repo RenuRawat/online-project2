@@ -50,6 +50,7 @@ public ResponseEntity<?> addJob(@RequestBody Job job,HttpSession session)
  }	 
  try {
 	 job.setPostedOn(new Date());
+	 job.setStatus('Y');
 	 jobService.addJob(job);
 	return new ResponseEntity<Job>(job,HttpStatus.OK);
  } catch (Exception e) {

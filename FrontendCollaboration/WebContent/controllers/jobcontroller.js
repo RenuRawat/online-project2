@@ -87,6 +87,38 @@ app.controller('JobController',function($scope,JobService,$location) {
 	
 	
 	
+	$scope.applyNewJob=function() {		
+		JobService.applyNewJob($scope.job).then(function(response) {
+			console.log(response.data)
+			console.log(response.status)
+			
+			getAllJobs()
+			
+			//$scope.job=''
+			 $location.path('/applyJob')
+				   
+		 
+		},function(response) {//response.status [401/500]
+			console.log(response.data)
+			console.log(response.status)
+			
+		
+		if(response.status==401)  //401
+			{
+			$scope.error=response.data.message
+			$location.path('/login') 
+			}
+			else//500
+			{				
+				$scope.error=response.data.message
+				$location.path('/applyJob')	
+			}
+			})
+	}
+	
+	
+	
+	
 	getAllJobs()
 	
 })

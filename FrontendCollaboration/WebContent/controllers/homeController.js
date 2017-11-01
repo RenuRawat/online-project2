@@ -10,9 +10,9 @@ app.controller('HomeController', function(BlogPostService,$rootScope,$location){
 		//returns list of blogPosts which are approved/rejected by admin
 		// and updated status is not yet viewed by user
 		
-		BlogPostService.getNotification().then(function(respoonse){
+		BlogPostService.getNotification().then(function(response){
 			$rootScope.blogApprovalStatus=response.data   //List of BlogPost
-			$rootScope.approvalStatusLength = $rootScope.blogApprovalStatus.length
+			$rootScope.approvalStatusLength = $rootScope.blogApprovalStatus.length  // Number of objects
 		}, function(response){
 			if(response.status==401)
 				$location.path('/login')

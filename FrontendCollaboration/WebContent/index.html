@@ -13,7 +13,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
 
- <link href="assets/mycss/like.css" rel="stylesheet">
+ <link href="assets/mycss/likeandNotification.css" rel="stylesheet">
  
 <script src="js/MainRoute.js"></script>
 
@@ -24,8 +24,12 @@
 <script src="controllers/blogpostcontroller.js"></script>
 <script src="services/blogpostService.js"></script>
 <script src="controllers/blogpostdetailcontroller.js"></script>
+<script src="controllers/homeController.js"></script>
+
 <script src="controllers/jobcontroller.js"></script>
 <script src="services/jobservice.js"></script>
+
+
 
 <script src="controllers/friendcontroller.js"></script>
 <script src="services/friendservice.js"></script>
@@ -69,8 +73,16 @@
   <li class="active"><a href="#/home"><span class="glyphicon glyphicon-home"></span> HOME</a></li>
   <li><a href="#/editprofile" ng-show="currentUser.isOnline"><span class="glyphicon glyphicon-log-in"></span> Edit Profile</a></li>
  
- 
+  <!-- --------------------------------------------------------------------------------------------------- -->
+      <li><a href="#/myprofile" >Profile</a></li>
   
+ 
+     <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" >Home news <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+    <li><a href="#/addhomepost" >Add Home Post</a></li>
+  </ul></li>
+   <!-- --------------------------------------------------------------------------------------------------- -->
+    
   <li><a href="#/uploadprofilepic" ng-show="currentUser.isOnline" >
   <img src="http://localhost:8084/RestController/getimage/{{currentUser.username}}" height="40px" width="40px" alt="upload profile pic" ng-show="currentUser.username"></a></li>
   
@@ -80,6 +92,7 @@
     
    <!--  <li><a href="#/chat">Chat</a></li> -->
   
+   <!-- --------------------------------------------------------------------------------------------------- -->
   
    <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" >Friend <b class="caret"></b></a>
     <ul class="dropdown-menu">
@@ -93,7 +106,8 @@
    
     </ul> </li>
   
-  
+   <!-- --------------------------------------------------------------------------------------------------- -->
+   
    <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" ng-show="currentUser.username" >
    <span class="glyphicon glyphicon-globe" ng-click="updateLength()">
    <span class="rw-number-notification" ng-if="approvalStatusLength>0">{{approvalStatusLength}}</span></span></a>
@@ -110,7 +124,7 @@
   
   
   
-  
+  <!-- --------------------------------------------------------------------------------------------------- -->
   
   
     <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" >Blog <b class="caret"></b></a>
@@ -119,6 +133,7 @@
     <li><a href="#/getblogs" >get All Blogs</a></li>
     </ul> </li>
   
+   <!-- --------------------------------------------------------------------------------------------------- -->
   
   <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" >Job <b class="caret"></b></a>
     <ul class="dropdown-menu">
@@ -127,7 +142,7 @@
    <li><a href="#/getalljobs" ng-hide="currentUser.role=='ADMIN' ">Get All Jobs</a></li>
  
     </ul> </li>
-
+ <!-- --------------------------------------------------------------------------------------------------- -->
 
 <li><a href="#/demo" >Demo</a></li>
 

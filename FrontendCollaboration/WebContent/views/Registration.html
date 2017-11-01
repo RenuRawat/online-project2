@@ -1,7 +1,7 @@
 <html>
 
 
-<head>
+<!-- <head>
    <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link href="assets/mycss/Registration.css" rel="stylesheet">
   
@@ -15,15 +15,33 @@
   
 	<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+</head> -->
+<head>
+<meta charset="ISO-8859-1">
+<link href="assets/mycss/Registration.css" rel="stylesheet">
+<style type="text/css">
+body
+{
+    background-image: url("image/admin.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%; 
+    background-attachment: fixed;
+}
+</style>
 </head>
+  
 
 <body>
 
+<span style="color:red" ng-if="error.code==1">{{error.message}}</span>
+
+	
 <div class="container">
 			<div class="row main">
 				<div class="panel-heading">
 	               <div class="panel-title text-center">
-	               		<h2 class="title">User Details</h2>
+				<h2  style="text-align: center; color: blue"><font face="Algerian"><h1><b><strong>Add User Detail</strong></b></h1></font></h2>
+	               <div	style="color:black; box-shadow: 5px 5px 5px #000;" ></div>
 	               		<hr />
 	               	</div>
 	            </div> 
@@ -31,7 +49,6 @@
 
 
 
-<span style="color:red" ng-if="error.code==1">{{error.message}}</span>
 
 <form>
 <div class="form-group">
@@ -78,16 +95,18 @@ Enter PhoneNumber:
 <input type="text" ng-model="user.phone" placeholder="Enter Your Phone" class="form-control">
 </div></div>
 <div class="form-group">
-<center>Select Role:</center>
+<center><h4><strong>Select Role:</strong></h4></center>
 <br>
-<input type="radio" ng-model="user.role" value="STUDENT">Student
-<input type="radio" ng-model="user.role" value="EMPLOYEE">Employee
-<input type="radio" ng-model="user.role" value="ADMIN">Admin
+<input type="radio" ng-model="user.role" value="STUDENT"><strong> Student</strong>&nbsp;
+<input type="radio" ng-model="user.role" value="EMPLOYEE"><strong> Employee</strong>&nbsp;
+<input type="radio" ng-model="user.role" value="ADMIN"><strong> Admin</strong>
 </div>
 
 <input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Register" ng-click="registerUser()">
 
 </form>
+
+</div></div>
 
 </div></div></div>
 
