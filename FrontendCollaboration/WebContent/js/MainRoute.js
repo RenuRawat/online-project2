@@ -92,9 +92,9 @@ app.run(function($rootScope,$cookieStore,UserService,$location,BlogPostService) 
 	function getNotification(){
 		
 		BlogPostService.getNotification().then(function(response){
-			$rootScope.blogApprovalStatus=response.data   //List of BlogPost
-			$rootScope.approvalStatusLength = $rootScope.blogApprovalStatus.length
-		}, function(response){
+			$rootScope.blogApprovalStatus=response.data    //List of BlogPost 
+			$rootScope.approvalStatusLength=$rootScope.blogApprovalStatus.length    //Number of objects 
+		},function(response){
 			if(response.status==401)
 				$location.path('/login')
 		})
@@ -103,9 +103,8 @@ app.run(function($rootScope,$cookieStore,UserService,$location,BlogPostService) 
 	$rootScope.updateViewedStatus=function(blogPost){
 		blogPost.viewed=1
 		BlogPostService.updateBlogPost(blogPost).then(function(response){
-		getNotification();	
-		
-		}, function(response){
+			getNotification();
+		},function(response){
 			if(response.status==401)
 				$location.path('/login')
 		})
