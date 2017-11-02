@@ -42,7 +42,14 @@ public class User{
 	
 	
 	private String role; 
-//	private String status; 
+	private String status; 
+	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	@Column(name="on_line")
 	private Boolean isOnline;
 	

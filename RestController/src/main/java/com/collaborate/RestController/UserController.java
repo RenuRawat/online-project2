@@ -14,12 +14,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.collaborate.Model.Error;
 import com.collaborate.Model.User;
+import com.collaborate.Service.EmailService;
 import com.collaborate.Service.UserService;
 
 //@RestController
 @Controller
 public class UserController {
 	
+	@Autowired	
+	private EmailService emailService;
 	
 @Autowired	
 private UserService userService;	
@@ -46,8 +49,12 @@ public ResponseEntity<?>registeruser(@RequestBody User user)
 		return new ResponseEntity<Error>(error, HttpStatus.NOT_ACCEPTABLE);
 	}
 	boolean result=userService.registerUser(user);
+	user.setStatus("Approved");
+		emailService.approvedUserMessage(user);
  	if(result)
  	{
+ 		
+		System.out.println("-------------------------------user adeed successfully--------------");
 	return new ResponseEntity<User>(user, HttpStatus.OK);   //200-299
 	} else
 	{
