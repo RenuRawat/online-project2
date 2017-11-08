@@ -14,37 +14,40 @@ body
 
 
 <div class="container">
-<span style="color:red">{{error}}</span>
+
 
 <div class="row" data-ng-controller="JobController as ctrl">
 	<div class="col-sm-2"></div>
 		<div class="col-sm-9">
-			<form role="form" data-ng-submit="ctrl.addJobs()">
-				<h2  style="text-align: center; color: black"><font face="Algerian"><h2><b><strong>Add New Job</strong></b></h2></font></h2><br><br>
+	<h2  style="text-align: center; color: black"><font face="Algerian"><h2><b><strong>Add New Job</strong></b></h2></font></h2><br><br>
+		
+		
+		<span style="color:red">{{error}}</span>
+			<form>
 					<table class="table table-hover" style="color:black; box-shadow: 5px 5px 5px #000;" >
 						<tr>  
 							<th>Job Title</th>
-							<td><input type="text" maxlength="255" placeholder="Enter Job Title" required="required" data-ng-model="job.jobTitle"/></td>
+							<td><input type="text" maxlength="255" placeholder="Enter Job Title" data-ng-model="job.jobTitle"/></td>
 						</tr>
 						<tr>
 							<th>Organization Name</th>
-							<td><input type="text" maxlength="200" placeholder="Enter Company Name" required="required" data-ng-model="job.companyname"/></td>
+							<td><input type="text" maxlength="200" placeholder="Enter Company Name" data-ng-model="job.companyname"/></td>
 						</tr>
 						<tr>
 							<th>Skills Required</th>
-							<td><input type="text" maxlength="200" placeholder="Enter the value skills Required" required="required" data-ng-model="job.skillsRequired"/></td>
+							<td><input type="text" maxlength="200" placeholder="Enter the value skills Required"  data-ng-model="job.skillsRequired"/></td>
 						</tr>
 						<tr>
 							<th>Location</th>
-							<td><input type="text" maxlength="200" placeholder="Enter Job Location" required="required" data-ng-model="job.location"/></td>
+							<td><input type="text" maxlength="200" placeholder="Enter Job Location" data-ng-model="job.location"/></td>
 						</tr>
 						<tr>
 							<th>Position Offered</th>
-							<td><input type="text" maxlength="200" placeholder="Enter Offered Position" required="required" data-ng-model="job.position"/></td>
+							<td><input type="text" maxlength="200" placeholder="Enter Offered Position" data-ng-model="job.position"/></td>
 						</tr>
 						<tr>
 							<th>Package Offered</th>
-							<td><input type="text" maxlength="100" placeholder="Enter Package Offered" required="required" data-ng-model="job.salary"/></td>
+							<td><input type="text" maxlength="100" placeholder="Enter Package Offered" data-ng-model="job.salary"/></td>
 						</tr>
 						<tr>
 							<th>Qualification 10th</th>
@@ -84,17 +87,19 @@ body
 						</tr>
 						<tr>
 							<th>Vacancy Available</th>
-							<td><input type="text" maxlength="5" placeholder="Vacancies Available" required="required"  data-ng-model="job.vacancy"/></td>
+							<td><input type="text" maxlength="5" placeholder="Vacancies Available"  data-ng-model="job.vacancy"/></td>
 						</tr>
 						<tr>
 							<th>Description</th>
-							<td><textarea rows="2" cols="50" placeholder="Describe offered position here and Experience" required="required" data-ng-model="job.jobDescription"></textarea></td>
+							<td><textarea rows="2" cols="50" placeholder="Describe offered position here and Experience" data-ng-model="job.jobDescription"></textarea></td>
 						</tr>
 						
 					<tr>
 						
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<button type="submit" class="btn btn-primary btn-lg" value="Post Job" ng-click="addJob()">Post Job</button></td>
+				
+				<input type="submit" class="btn btn-primary btn-lg" value="Post Job" ng-click="addJob()">
+				</td>
 				<td><button  type="reset" class="btn btn-danger btn-lg" >Reset Data</button></td>
 						</tr>
 					</table>
@@ -109,9 +114,9 @@ body
 
 
 
-<pre>
-</pre>
+<pre></pre>
 
+<div>
 <div ng-init=getAllJobs()>
 <h2  style="text-align: center; color: black"><font face="Algerian"><h2><b><strong>Available Jobs</strong></b></h2></font></h2>
 
@@ -119,7 +124,7 @@ body
 <div style="color:black; box-shadow: 5px 5px 5px #000;" >
 <center><span ng-if="jobs.length==0"><b><h2><strong>No Job Available here </strong></h2></b></span></center>
 
-<table class="table table-striped">
+<table class="table table-striped" >
 <thead>
 <tr><th>Job Title</th><th>Job Package</th><th>Company name</th><th>Skills Required</th><th>Position</th><th>Vacancy</th><th>Job Location</th><th>Posted On </th><th>Action</th></tr>
 </thead>
@@ -143,7 +148,7 @@ body
 </tbody>
 
 </table>
-</div>
+</div></div>
 
 
 

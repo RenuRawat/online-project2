@@ -95,7 +95,7 @@ app.controller('JobController',function($scope,JobService,$location) {
 			getAllJobs()
 			
 			//$scope.job=''
-			 $location.path('/applyJob')
+			 $location.path('/getalljobs')
 				   
 		 
 		},function(response) {//response.status [401/500]
@@ -111,7 +111,7 @@ app.controller('JobController',function($scope,JobService,$location) {
 			else//500
 			{				
 				$scope.error=response.data.message
-				$location.path('/applyJob')	
+				$location.path('/getalljobs')	
 			}
 			})
 	}
