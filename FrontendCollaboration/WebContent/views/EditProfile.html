@@ -3,18 +3,19 @@
 
 <head>
    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link href="assets/mycss/Registration.css" rel="stylesheet">
   
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
   
 	<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'> -->
 	
 
 <style type="text/css">
 body
 {
-    background-image: url("image/admin.jpg");
+    background-image: url("image/thr.jpg");
     background-repeat: no-repeat;
     background-size: 100%; 
     background-attachment: fixed;
@@ -31,7 +32,8 @@ body
 			<div class="row main">
 				<div class="panel-heading">
 	               <div class="panel-title text-center">
-	               		<h2 class="title">Edit User Profile</h2>
+				<h2  style="text-align: center; color: blue"><font face="Algerian"><h1><b><strong>Edit Profile</strong></b></h1></font></h2>
+	               <div	style="color:black; box-shadow: 5px 5px 5px #000;" ></div>
 	               		<hr />
 	               	</div>
 	            </div> 
@@ -85,12 +87,13 @@ Enter PhoneNumber:
 <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
 <input type="text" ng-model="user.phone" placeholder="Enter Your Phone" class="form-control">
 </div></div>
-<div class="form-group">
-<center>Select Role:</center>
 <br>
-<input type="radio" ng-model="user.role" value="STUDENT">Student
-<input type="radio" ng-model="user.role" value="EMPLOYEE">Employee
-<input type="radio" ng-model="user.role" value="ADMIN">Admin
+<div class="form-group">
+<center><strong><h4>Select Role:</h4></strong></center>
+<br>
+<center><input type="radio" ng-model="user.role" value="STUDENT"><strong>Student</strong>&nbsp;
+<input type="radio" ng-model="user.role" value="EMPLOYEE"><strong>Employee</strong></center>
+<!-- <input type="radio" ng-model="user.role" value="ADMIN">Admin -->
 </div>
 
 <input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Edit Profile" ng-click="updateUser()">

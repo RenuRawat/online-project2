@@ -70,17 +70,17 @@
    <div class="collapse navbar-collapse" id="collapse-example">
   
   <ul class="nav navbar-nav" >
-  <li class="active"><a href="#/home"><span class="glyphicon glyphicon-home"></span> HOME</a></li>
+<!--   <li class="active"><a href="#/home"><span class="glyphicon glyphicon-home"></span>Collaboration</a></li> -->
   <li><a href="#/editprofile" ng-show="currentUser.isOnline"><span class="glyphicon glyphicon-log-in"></span> Edit Profile</a></li>
  
   <!-- --------------------------------------------------------------------------------------------------- -->
       <li><a href="#/myprofile" >Profile</a></li>
   
  
-     <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" >Home news <b class="caret"></b></a>
+  <!--    <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" >Home news <b class="caret"></b></a>
     <ul class="dropdown-menu">
     <li><a href="#/addhomepost" >Add Home Post</a></li>
-  </ul></li>
+  </ul></li> -->
    <!-- --------------------------------------------------------------------------------------------------- -->
     
   <li><a href="#/uploadprofilepic" ng-show="currentUser.isOnline" >
@@ -94,17 +94,19 @@
   
    <!-- --------------------------------------------------------------------------------------------------- -->
   
-   <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" >Friend <b class="caret"></b></a>
+   <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown"   ng-show="currentUser.isOnline">Friend <b class="caret"></b></a>
     <ul class="dropdown-menu">
     <li><a href="#/getsuggestedusers" >List of Suggested users</a></li>
      <li><a href="#/pendingrequests" >Pending Friend Request</a></li>
      <li><a href="#/friendslist" >Friends List</a></li>
      
      
-     <li><a href="#/chat" ng-show="currentUser.username">chat </a></li>
+   
    <!--   <li><a href="#" ng-hide="currentUser.firstName==undefined"> Welcome {{currentUser.firstName}}</a></li> -->
    
     </ul> </li>
+  
+    <li><a href="#/chat" ng-show="currentUser.username">chat </a></li>
   
    <!-- --------------------------------------------------------------------------------------------------- -->
    <li class="dropdown"><a href="" class="dropdown-toggle"

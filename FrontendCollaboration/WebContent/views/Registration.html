@@ -22,7 +22,7 @@
 <style type="text/css">
 body
 {
-    background-image: url("image/admin.jpg");
+    background-image: url("image/thr.jpg");
     background-repeat: no-repeat;
     background-size: 100%; 
     background-attachment: fixed;
@@ -33,7 +33,6 @@ body
 
 <body>
 
-<span style="color:red" ng-if="error.code==1">{{error.message}}</span>
 
 	
 <div class="container">
@@ -49,6 +48,7 @@ body
 
 
 
+<span style="color:red" ng-if="error.code==1">{{error.message}}</span>
 
 <form>
 <div class="form-group">
@@ -97,9 +97,9 @@ Enter PhoneNumber:
 <div class="form-group">
 <center><h4><strong>Select Role:</strong></h4></center>
 <br>
-<input type="radio" ng-model="user.role" value="STUDENT"><strong> Student</strong>&nbsp;
-<input type="radio" ng-model="user.role" value="EMPLOYEE"><strong> Employee</strong>&nbsp;
-<input type="radio" ng-model="user.role" value="ADMIN"><strong> Admin</strong>
+<center><input type="radio" ng-model="user.role" value="STUDENT"><strong> Student</strong>&nbsp;&nbsp;
+<input type="radio" ng-model="user.role" value="EMPLOYEE"><strong> Employee</strong></center>
+<!-- <input type="radio" ng-model="user.role" value="ADMIN"><strong> Admin</strong> -->
 </div>
 
 <input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Register" ng-click="registerUser()">
