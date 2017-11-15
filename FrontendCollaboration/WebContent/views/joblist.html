@@ -3,7 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 
-<style type="text/css">
+<!-- <style type="text/css">
 body
 {
     background-image: url("image/thr.jpg");
@@ -14,20 +14,16 @@ body
     background-attachment: fixed;
 }	
 	
-</style>
-<!-- <center><input type="text" ng-model="searchTxt"><span class="glyphicon glyphicon-search"></span>Search Jobs</center><br>
-<tr style="font: bold;"> -->
+</style> -->
+
 
 </head>
 <body>
 
-<div>
-<div style="color:black; box-shadow: 5px 5px 5px #000;" >
-<center><span ng-if="jobs.length==0"><b><h2><strong>No Job Available here </strong></h2></b></span></center>
-</div>
 
-<div ng-init=getAllJobs() ng-if="!jobs">
-<h1 ng-if="!jobs"  style="text-align: center; color: #0000b3"><font face="Algerian"><b><strong>Available Jobs</strong></b></font></h1>
+
+<div ng-init=getAllJobs()>
+<h1 style="text-align: center; color: #0000b3"><font face="Algerian"><b><strong>Available Jobs</strong></b></font></h1>
 <br><br>
 
 
@@ -35,13 +31,10 @@ body
 
 
 
-<!-- <div style="color:black; box-shadow: 5px 5px 5px #000;" > -->
-
-
 <div class="container" >
 <div class="col-sm-12">
 
-<table style="box-shadow: 5px 5px 5px #111; font: bold; color: black" ng-if="!jobs">
+<table class="table" style="box-shadow: 5px 5px 5px #111; font: bold; color: black">
 <thead>
 <tr  style="font: bold;">
 <th>Job Title</th><th>Skills Required</th><th>Posted On </th></tr>
@@ -57,7 +50,13 @@ body
 <tr>
 </tbody>
 </table></div></div>
+</div>
+
+<div>
+<div style="color:black; box-shadow: 5px 5px 5px #000;" >
+<center><span ng-if="jobs.length==0"><b><h2><strong>No Job Available here </strong></h2></b></span></center>
 </div></div>
+
 
 
 

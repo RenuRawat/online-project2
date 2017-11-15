@@ -18,7 +18,8 @@ app.controller('UserController', function($scope,UserService,$location,$rootScop
 			 * Redirect the user to login page with 'registration success' message
 			 */
 			console.log(response.data)
-            console.log(response.status)          
+            console.log(response.status)  
+            alert('User Registration is successfully done')
             $location.path('/login')
 		}, function(response) {
 			/*

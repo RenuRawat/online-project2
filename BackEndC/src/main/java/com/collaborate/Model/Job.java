@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="JobTable")
@@ -16,6 +17,7 @@ public class Job {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
 	private int id;
+	
 	private String jobTitle, jobDescription, skillsRequired, salary, location, companyname, position, vacancy;
 	
 	
@@ -24,8 +26,11 @@ public class Job {
 
 	private Date postedOn;
 	
+	 @NotNull(message="q_10 is Null")
 	private String q_10;
+	 @NotNull(message="q_12 is Null")
 	private String q_12;
+	 @NotNull(message="q_ug is Null")
 	private String q_ug;
 	
 	

@@ -2,9 +2,14 @@ package com.collaborate.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 
 
 
@@ -19,6 +24,7 @@ public class User{
 //	private int userId;
 	@Id
 	
+	
     private String username;
 	
 	
@@ -28,12 +34,22 @@ public class User{
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}*/
+	
+	 @NotNull(message="firstname is Null")
 	private String firstname; 
+	 @NotNull(message="surname is Null")
 	private String surname; 
+	
+	@Pattern(regexp="^[789]\\d{9}$",message="number should be of 10 digits,and begins 9,8,7 since in india")
+	 @NotNull
+	 @Size(min=8, max=10, message="Enter correct number")
 	private String phone;
 	@Column(unique=true, nullable=false)
 	private String email; 
 	//private String confmemail;
+	
+	@NotNull(message="Password is Null")
+	@Size(min=6 , max=12 , message="password lenght should be more than 6 and less than 12")
 	private String password; 
 	//private String confpassword;
 	

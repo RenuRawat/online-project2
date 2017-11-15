@@ -14,7 +14,7 @@ app.controller('JobController',function($scope,JobService,$location) {
 			console.log(response.status)
 			
 			getAllJobs()
-			
+			alert("Successfully added")
 			$scope.job=''
 			 $location.path('/addjob')
 				   
@@ -60,6 +60,7 @@ app.controller('JobController',function($scope,JobService,$location) {
 	function getAllJobs() {
 		JobService.getAllJobs().then(function(response){
 			$scope.jobs=response.data
+		/*	$location.path('/getalljobs')*/
 		}, function(response){
 			if(response.status==401)
 				{
@@ -87,11 +88,16 @@ app.controller('JobController',function($scope,JobService,$location) {
 	
 	
 	
+	
+	
 	$scope.applyNewJob=function() {		
 		JobService.applyNewJob($scope.job).then(function(response) {
 			console.log(response.data)
 			console.log(response.status)
 			
+			
+			alert("Job Applied")
+			$scope.showJobDetails=false;
 			getAllJobs()
 			
 			//$scope.job=''
