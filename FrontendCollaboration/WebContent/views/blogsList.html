@@ -1,8 +1,18 @@
  <div ng-show="currentUser.role=='ADMIN'"> 
 
-<b>List of Blogs Waiting for Approval</b>
+<!-- <div class="col-sm-11"  class="row" style="text-align: center; width="400px"> -->
 
-<table class="table table-striped">
+<div>
+
+<h2 style="text-align: center; color: #0000b3"><font face="Algerian"><strong>List of Blogs Waiting for Approval</strong></font></h2>
+
+<br>
+<!-- <h3><center><strong><b>List of Blogs Waiting for Approval</b></strong></center></h3> -->
+
+
+
+
+<table class="table table-hover table-responsive" class="col-sm-11">
 <thead>
 <tr>
 <th>Blog Title</th>
@@ -23,12 +33,18 @@
 </tbody>
 </table>
 
-</div>
+</div></div>
 
 <div>
-<b>List of Blogs which are approved</b>
+<div>
 
-<table class="table table-striped">
+<h2 style="text-align: center; color: #0000b3"><font face="Algerian"><strong>List of Blogs which are approved</strong></font></h2>
+
+<br>
+
+<!-- <h3><center><strong><b>List of Blogs which are approved</b></strong></center></h3> -->
+
+<table class="table table-hover table-responsive" class="col-sm-11">
 <thead>
 <tr>
 <th>Blog Title</th>
@@ -38,6 +54,9 @@
 
 <tbody>
 <tr ng-repeat="blogPost in listOfBlogsApproved">
+
+
+
 <td><img src="http://localhost:8084/RestController/getimage/{{blogPost.postedBy.username}}" height="60px" width="60px" 
                alt="Image Not Available" class="img-circle"  ></td>
 <td><a href="#/getblogbyid/{{blogPost.id}}">{{blogPost.blogTitle}}</a></td>
